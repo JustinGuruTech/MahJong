@@ -19,9 +19,19 @@ public class Tile extends JPanel {
     protected static final Color WHITE = Color.WHITE;
     protected static final Color LGRAY = Color.lightGray;
 
+    // static
     static ArrayList<GradientPaint> gradients = new ArrayList<>();
     static ArrayList<int[]> coordinates1 = new ArrayList<>();
     static ArrayList<int[]> coordinates2 = new ArrayList<>();
+
+    // position for layering
+    private double posX = 0;
+    private double posY = 0;
+    private int posZ = 0;
+
+    private boolean tileOnTop = false;
+    private boolean clickable = false;
+    private boolean visible = true;
 
     static {
         gradients.add(new GradientPaint(0, HEIGHT, GREEN, 0, HEIGHT - 85, BLACK));
@@ -52,13 +62,76 @@ public class Tile extends JPanel {
         setToolTipText(toString());
 
         // set size based off constants
-        System.out.println(WIDTH);
-        System.out.println(HEIGHT);
+//        System.out.println(WIDTH);
+//        System.out.println(HEIGHT);
 
         setPreferredSize(dimension);
+        setSize(dimension);
+        setOpaque(false);
 
 
     }
+
+    public double getPosX() {
+        return posX;
+    }
+
+    public double getPosY() {
+        return posY;
+    }
+
+    public int getPosZ() {
+        return posZ;
+    }
+
+    public void setPosX(double newPosX) {
+        posX = newPosX;
+    }
+
+    public void setPosY(double newPosY) {
+        posY = newPosY;
+    }
+
+    public void setPosZ(int newPosZ) {
+        posZ = newPosZ;
+    }
+
+    public void setXYZ(double x, double y, int z) {
+        setPosX(x);
+        setPosY(y);
+        setPosZ(z);
+    }
+
+    public boolean getClickable() {
+        return clickable;
+    }
+
+    public void setClickable() {
+        clickable = true;
+    }
+
+    public void setInvisible() {
+        visible = false;
+    }
+
+    public boolean getVisibility() {
+        return visible;
+    }
+
+    public void setTileOnTop() {
+        tileOnTop = true;
+    }
+
+    public void removeTileOnTop() {
+        tileOnTop = false;
+    }
+
+    public boolean getTileOnTop() {
+        return tileOnTop;
+    }
+
+
+
 
 
     public boolean matches(Tile other) {
@@ -100,12 +173,17 @@ public class Tile extends JPanel {
         g2d.fillPolygon(coordinates1.get(5), coordinates2.get(5), 4);
 
         g2d.setColor(BLACK);
+        // causing a fucking problem
         g2d.drawPolygon(coordinates1.get(6), coordinates2.get(6), 4);
         g2d.drawPolygon(coordinates1.get(7), coordinates2.get(7), 4);
+//        g2d.drawPolygon(WIDTH, WIDTH - 5 4);
 
         g2d.setPaint(gradients.get(3));
         g2d.fillRect(10, 0, WIDTH, HEIGHT - 5);
         g2d.setColor(BLACK);
         g2d.drawRect(10, 0, WIDTH, HEIGHT - 5);
     }
+
+
+
 }
