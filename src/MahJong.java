@@ -91,30 +91,24 @@ public class MahJong extends JFrame implements ActionListener {
     }
 
     public void newGame() {
-        resetGameVariables();
-
-        // new game board
-        gameBoard = new MahJongBoard();
-        add(gameBoard);
-        repaint();
-        setVisible(true);
+        long gameNumber = System.currentTimeMillis() % 100000;
+        setTitle("Mahjong Game - Game Number " + gameNumber);
+        newGame(gameNumber);
     }
 
     public void newGame(long gameNumber) {
-        resetGameVariables();
+
+        // reset game variables
+        totalMoves = 0;
+        redoMoves = 0;
+        tilesRemoved.clear();
+        gameStarted = true;
 
         // new game board
         gameBoard = new MahJongBoard(gameNumber);
         add(gameBoard);
         repaint();
         setVisible(true);
-    }
-
-    public void resetGameVariables() {
-        totalMoves = 0;
-        redoMoves = 0;
-        tilesRemoved.clear();
-        gameStarted = true;
     }
 
     public void restartGame() {
@@ -235,11 +229,6 @@ public class MahJong extends JFrame implements ActionListener {
         public MahJongModel model;
         public ImageIcon background;
         private Image backgroundImage;
-
-        public MahJongBoard() {
-            model = new MahJongModel();
-            drawBackground();
-        }
 
         public MahJongBoard(long gameNumber) {
             model = new MahJongModel(gameNumber);

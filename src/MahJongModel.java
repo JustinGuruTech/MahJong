@@ -67,12 +67,7 @@ public class MahJongModel {
     //      row 6 x: tiles 3-10 y: tile 6   tiles: 8
     //      row 7 x: tiles 1-12 y: tile 7   tiles: 12
 
-    public MahJongModel() {
 
-        deck = new TileDeck();
-        deck.shuffle();
-        formLayers();
-    }
 
     public MahJongModel(long gameNumber) {
         deck = new TileDeck();
