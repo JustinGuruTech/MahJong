@@ -12,6 +12,20 @@ public class MahJongModel {
     public TileLayer rightExtras;
     public TileDeck deck;
 
+    private Tile tileClicked = null;
+
+    public Tile getTileClicked() {
+        return tileClicked;
+    }
+
+    public void setTileClicked(Tile tileClicked) {
+        this.tileClicked = tileClicked;
+    }
+
+    public void unsetTileClicked() {
+        this.tileClicked = null;
+    }
+
     // draw left to right to preserve overlay
     // all tiles zero indexed
     //
@@ -150,6 +164,10 @@ public class MahJongModel {
         tileLayers.add(thirdLayer);
         tileLayers.add(fourthLayer);
         tileLayers.add(bottomLayer);
+        // EDIT: realized too late I did this backwards compared to how I wanted to some
+        // janky code here and there to get the proper z value for tiles
+        // def not about to refactor it all
+
 
     }
 

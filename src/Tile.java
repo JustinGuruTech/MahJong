@@ -32,6 +32,7 @@ public class Tile extends JPanel {
     private boolean tileOnTop = false;
     private boolean clickable = false;
     private boolean visible = true;
+    private Point boardLocation;
 
     static {
         gradients.add(new GradientPaint(0, HEIGHT, GREEN, 0, HEIGHT - 85, BLACK));
@@ -59,39 +60,32 @@ public class Tile extends JPanel {
 
 
     public Tile() {
+
         setToolTipText(toString());
-
-        // set size based off constants
-//        System.out.println(WIDTH);
-//        System.out.println(HEIGHT);
-
         setPreferredSize(dimension);
-        setSize(dimension);
+        setSize(WIDTH + 10, HEIGHT + 10);
         setOpaque(false);
-
 
     }
 
+    // getters and setters
     public double getPosX() {
         return posX;
+    }
+    public void setPosX(double newPosX) {
+        posX = newPosX;
     }
 
     public double getPosY() {
         return posY;
     }
-
-    public int getPosZ() {
-        return posZ;
-    }
-
-    public void setPosX(double newPosX) {
-        posX = newPosX;
-    }
-
     public void setPosY(double newPosY) {
         posY = newPosY;
     }
 
+    public int getPosZ() {
+        return posZ;
+    }
     public void setPosZ(int newPosZ) {
         posZ = newPosZ;
     }
@@ -105,34 +99,33 @@ public class Tile extends JPanel {
     public boolean getClickable() {
         return clickable;
     }
-
     public void setClickable() {
         clickable = true;
-    }
-
-    public void setInvisible() {
-        visible = false;
     }
 
     public boolean getVisibility() {
         return visible;
     }
-
-    public void setTileOnTop() {
-        tileOnTop = true;
-    }
-
-    public void removeTileOnTop() {
-        tileOnTop = false;
+    public void setInvisible() {
+        visible = false;
     }
 
     public boolean getTileOnTop() {
         return tileOnTop;
     }
+    public void setTileOnTop() {
+        tileOnTop = true;
+    }
+    public void removeTileOnTop() {
+        tileOnTop = false;
+    }
 
-
-
-
+    public Point getBoardLocation() {
+        return boardLocation;
+    }
+    public void setBoardLocation(Point point) {
+        boardLocation = point;
+    }
 
     public boolean matches(Tile other) {
 
@@ -150,9 +143,6 @@ public class Tile extends JPanel {
 
         // call constructor for paint component
         super.paintComponent(g);
-
-        //TODO: figure out how to put this in constructor without messing up display
-        setSize(WIDTH + 10, HEIGHT + 10);
 
         // 2d graphics, gradient and shading will control depth
         Graphics2D g2d = (Graphics2D) g;
