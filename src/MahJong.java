@@ -1,7 +1,6 @@
 import java.util.*;
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.event.*;
 
 public class MahJong extends JFrame implements ActionListener {
@@ -12,11 +11,12 @@ public class MahJong extends JFrame implements ActionListener {
     private JPanel welcomeLayout = new JPanel();
     private MahJongBoard gameBoard;
     private boolean gameStarted = false;
-    private int moves = 0;
+    private int totalMoves = 0;
+    private int redoMoves = 0;
+    private ArrayList<Tile> tilesRemoved = new ArrayList<>();
+    private ArrayList<Tile> tilesToRedo = new ArrayList<>();
 
-//    static {
-//        deck.shuffle();
-//    }
+    public void incrementTotalMoves() { totalMoves++; }
 
     public MahJong() {
 
@@ -83,23 +83,61 @@ public class MahJong extends JFrame implements ActionListener {
             } else {
                 unravel();
             }
+        } else if (buttonPressed.equals("Undo")) {
+            undo();
+        } else if (buttonPressed.equals("Redo")) {
+            redo();
         }
     }
 
     public void newGame() {
+        // reset game state variables
+        totalMoves = 0;
+        redoMoves = 0;
+        tilesRemoved.clear();
         gameBoard = new MahJongBoard();
         gameStarted = true;
         add(gameBoard);
     }
 
     public void unravel() {
-        while (moves > 0) {
+        while (totalMoves > 0) {
             undo();
         }
     }
 
     public void undo() {
 
+        // only if there's a move to undo
+        if (totalMoves > 0) {
+
+            for (int i = 0; i < 2; i++) {
+                tilesRemoved.get(tilesRemoved.size() - 1).setVisible();
+                tilesToRedo.add(tilesRemoved.get(tilesRemoved.size() - 1));
+                tilesRemoved.remove(tilesRemoved.size() - 1);
+            }
+            redoMoves++;
+            totalMoves--;
+
+        }
+
+        repaint();
+    }
+
+    public void redo() {
+
+        //TODO: implement redo
+        if (redoMoves > 0) {
+            for (int i = 0; i < 2; i++) {
+                tilesToRedo.get(tilesToRedo.size() - 1).setInvisible();
+                tilesRemoved.add(tilesToRedo.get(tilesToRedo.size() -  1));
+                tilesToRedo.remove(tilesToRedo.size() - 1);
+            }
+            redoMoves--;
+            totalMoves++;
+        }
+
+        repaint();
     }
 
     public void makeMenu() {
@@ -218,8 +256,12 @@ public class MahJong extends JFrame implements ActionListener {
                         // remove them
                         model.getTileClicked().setInvisible();
                         t.setInvisible();
-//                        remove(model.getTileClicked());
-//                        remove(t);
+
+                        // add to removed tiles for undoing capability
+                        tilesRemoved.add(model.getTileClicked());
+                        tilesRemoved.add(t);
+                        incrementTotalMoves();
+                        redoMoves = 0;
 
                         // update tiles
                         updateClickabilities(model.getTileClicked());

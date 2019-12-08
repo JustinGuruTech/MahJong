@@ -20,9 +20,9 @@ public class Tile extends JPanel {
     protected static final Color LGRAY = Color.lightGray;
 
     // static
-    static ArrayList<GradientPaint> gradients = new ArrayList<>();
-    static ArrayList<int[]> coordinates1 = new ArrayList<>();
-    static ArrayList<int[]> coordinates2 = new ArrayList<>();
+    private static ArrayList<GradientPaint> gradients = new ArrayList<>();
+    private static ArrayList<int[]> coordinates1 = new ArrayList<>();
+    private static ArrayList<int[]> coordinates2 = new ArrayList<>();
 
     // position for layering
     private double posX = 0;
@@ -70,26 +70,14 @@ public class Tile extends JPanel {
     }
 
     // getters and setters
-    public double getPosX() {
-        return posX;
-    }
-    public void setPosX(double newPosX) {
-        posX = newPosX;
-    }
+    public double getPosX() { return posX; }
+    public void setPosX(double newPosX) { posX = newPosX; }
 
-    public double getPosY() {
-        return posY;
-    }
-    public void setPosY(double newPosY) {
-        posY = newPosY;
-    }
+    public double getPosY() { return posY; }
+    public void setPosY(double newPosY) { posY = newPosY; }
 
-    public int getPosZ() {
-        return posZ;
-    }
-    public void setPosZ(int newPosZ) {
-        posZ = newPosZ;
-    }
+    public int getPosZ() { return posZ; }
+    public void setPosZ(int newPosZ) { posZ = newPosZ; }
 
     public void setXYZ(double x, double y, int z) {
         setPosX(x);
@@ -97,48 +85,23 @@ public class Tile extends JPanel {
         setPosZ(z);
     }
 
-    public boolean getClickable() {
-        return clickable;
-    }
-    public void setClickable() {
-        clickable = true;
-    }
+    public boolean getClickable() { return clickable; }
+    public void setClickable() { clickable = true; }
 
-    public boolean getVisibility() {
-        return visible;
-    }
-    public void setInvisible() {
-        visible = false;
-    }
+    public boolean getVisibility() { return visible; }
+    public void setInvisible() { visible = false; }
+    public void setVisible() { visible = true; }
 
-    public boolean getTileOnTop() {
-        return tileOnTop;
-    }
-    public void setTileOnTop() {
-        tileOnTop = true;
-    }
-    public void removeTileOnTop() {
-        tileOnTop = false;
-    }
+    public boolean getTileOnTop() { return tileOnTop; }
+    public void setTileOnTop() { tileOnTop = true; }
+    public void removeTileOnTop() { tileOnTop = false; }
 
-    public Point getBoardLocation() {
-        return boardLocation;
-    }
-    public void setBoardLocation(Point point) {
-        boardLocation = point;
-    }
+    public Point getBoardLocation() { return boardLocation; }
+    public void setBoardLocation(Point point) { boardLocation = point; }
 
-    public void setSelected() {
-        selected = true;
-    }
-
-    public void setDeselected() {
-        selected = false;
-    }
-
-    public boolean getSelected() {
-        return selected;
-    }
+    public void setSelected() { selected = true; }
+    public void setDeselected() { selected = false; }
+    public boolean getSelected() { return selected; }
 
     public boolean matches(Tile other) {
 
