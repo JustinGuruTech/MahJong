@@ -5,16 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJong$MahJongBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/MahJong$MahJongBoard.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJong.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/MahJong.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJongModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/MahJongModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lab3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lab4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lab5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lab5.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mahjong/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/Tile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MahJong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MahJong.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MahJongModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MahJongModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mahjong.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mahjong_old.zip" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,10 +27,52 @@
           <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Tile.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-165">
-                  <caret line="127" column="5" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
+                <state relative-caret-position="308">
+                  <caret line="135" column="25" selection-start-line="135" selection-start-column="25" selection-end-line="135" selection-end-column="25" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="e#3946#3947#0" expanded="true" />
+                    <element signature="e#3977#3978#0" expanded="true" />
+                    <element signature="e#4012#4013#0" expanded="true" />
+                    <element signature="e#4044#4045#0" expanded="true" />
+                    <element signature="e#4017#4018#0" expanded="true" />
+                    <element signature="e#4048#4049#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MahJong.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/MahJong.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="424">
+                  <caret line="110" column="22" lean-forward="true" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#563#695#0" expanded="true" />
+                    <element signature="e#694#695#0" expanded="true" />
+                    <element signature="e#7779#7780#0" expanded="true" />
+                    <element signature="e#7847#7848#0" expanded="true" />
+                    <element signature="e#9603#9604#0" expanded="true" />
+                    <element signature="e#9632#9633#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MahJongModel.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/MahJongModel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-598">
+                  <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+                  <folding>
+                    <element signature="e#406#407#0" expanded="true" />
+                    <element signature="e#440#441#0" expanded="true" />
+                    <element signature="e#492#493#0" expanded="true" />
+                    <element signature="e#538#539#0" expanded="true" />
+                    <element signature="e#580#581#0" expanded="true" />
+                    <element signature="e#613#614#0" expanded="true" />
+                    <element signature="e#387#428#0" />
                   </folding>
                 </state>
               </provider>
@@ -77,53 +112,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="TileRow.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/TileRow.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="160">
-                  <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MahJongModel.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/MahJongModel.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="343">
-                  <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-                  <folding>
-                    <element signature="e#406#407#0" expanded="true" />
-                    <element signature="e#440#441#0" expanded="true" />
-                    <element signature="e#492#493#0" expanded="true" />
-                    <element signature="e#538#539#0" expanded="true" />
-                    <element signature="e#580#581#0" expanded="true" />
-                    <element signature="e#613#614#0" expanded="true" />
-                    <element signature="e#387#428#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MahJong.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/MahJong.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="151">
-                  <caret line="80" column="10" lean-forward="true" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#563#695#0" expanded="true" />
-                    <element signature="e#694#695#0" expanded="true" />
-                    <element signature="e#6385#6386#0" expanded="true" />
-                    <element signature="e#6453#6454#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="TileDeck.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/TileDeck.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="960">
+                <state relative-caret-position="786">
                   <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
                   <folding>
                     <element signature="e#1367#1368#0" expanded="true" />
@@ -131,6 +123,15 @@
                     <element signature="e#1452#1453#0" expanded="true" />
                     <element signature="e#1517#1518#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="TileRow.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/TileRow.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="160">
+                  <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
                 </state>
               </provider>
             </entry>
@@ -154,7 +155,7 @@
           <file leaf-file-name="MahJongTest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/MahJongTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
+                <state relative-caret-position="36">
                   <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -197,6 +198,8 @@
       <find>setPrefer</find>
       <find>WHITE</find>
       <find>GRAY</find>
+      <find>setBoard</find>
+      <find>border</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -228,8 +231,9 @@
         <option value="$PROJECT_DIR$/src/MahJongTest.java" />
         <option value="$PROJECT_DIR$/src/TileRow.java" />
         <option value="$PROJECT_DIR$/src/TileLayer.java" />
-        <option value="$PROJECT_DIR$/src/Tile.java" />
         <option value="$PROJECT_DIR$/src/MahJongModel.java" />
+        <option value="$PROJECT_DIR$/src/TileBorder.java" />
+        <option value="$PROJECT_DIR$/src/Tile.java" />
         <option value="$PROJECT_DIR$/src/MahJong.java" />
       </list>
     </option>
@@ -406,12 +410,12 @@
       <workItem from="1574363609047" duration="11610000" />
       <workItem from="1575475028358" duration="6381000" />
       <workItem from="1575562642730" duration="17133000" />
-      <workItem from="1575593106131" duration="15694000" />
+      <workItem from="1575593106131" duration="21313000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88549000" />
+    <option name="totallyTimeSpent" value="94168000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="757" y="23" width="1163" height="1097" extended-state="0" />
@@ -449,13 +453,13 @@
       <window_info anchor="bottom" id="Find" order="1" weight="0.32940108" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.28966224" />
       <window_info id="Image Layers" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3262195" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32940108" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32960597" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="Cargo" order="4" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="7" />
@@ -464,12 +468,12 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.32825205" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.32753327" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.122977346" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13559322" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -477,7 +481,7 @@
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32940108" />
+      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32960597" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.398374" />
     </layout-to-restore>
   </component>
@@ -497,20 +501,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CharacterTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Lab4.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1360">
@@ -799,7 +789,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MahJongTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="36">
           <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -817,69 +807,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TileDeck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
-          <folding>
-            <element signature="e#1367#1368#0" expanded="true" />
-            <element signature="e#1408#1409#0" expanded="true" />
-            <element signature="e#1452#1453#0" expanded="true" />
-            <element signature="e#1517#1518#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CharacterTile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TileLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165">
-          <caret line="127" column="5" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FlowerTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-          <folding>
-            <element signature="e#82#83#0" expanded="true" />
-            <element signature="e#109#110#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MahJongModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding>
-            <element signature="e#406#407#0" expanded="true" />
-            <element signature="e#440#441#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#538#539#0" expanded="true" />
-            <element signature="e#580#581#0" expanded="true" />
-            <element signature="e#613#614#0" expanded="true" />
-            <element signature="e#387#428#0" />
           </folding>
         </state>
       </provider>
@@ -901,16 +834,98 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/awt/AWTEventMulticaster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="269" selection-start-line="269" selection-end-line="269" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FlowerTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding>
+            <element signature="e#82#83#0" expanded="true" />
+            <element signature="e#109#110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TileDeck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="786">
+          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+          <folding>
+            <element signature="e#1367#1368#0" expanded="true" />
+            <element signature="e#1408#1409#0" expanded="true" />
+            <element signature="e#1452#1453#0" expanded="true" />
+            <element signature="e#1517#1518#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TileLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TileBorder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MahJongModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-598">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding>
+            <element signature="e#406#407#0" expanded="true" />
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="e#492#493#0" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+            <element signature="e#613#614#0" expanded="true" />
+            <element signature="e#387#428#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="135" column="25" selection-start-line="135" selection-start-column="25" selection-end-line="135" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3946#3947#0" expanded="true" />
+            <element signature="e#3977#3978#0" expanded="true" />
+            <element signature="e#4012#4013#0" expanded="true" />
+            <element signature="e#4044#4045#0" expanded="true" />
+            <element signature="e#4017#4018#0" expanded="true" />
+            <element signature="e#4048#4049#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MahJong.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="80" column="10" lean-forward="true" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
+        <state relative-caret-position="424">
+          <caret line="110" column="22" lean-forward="true" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#563#695#0" expanded="true" />
             <element signature="e#694#695#0" expanded="true" />
-            <element signature="e#6385#6386#0" expanded="true" />
-            <element signature="e#6453#6454#0" expanded="true" />
+            <element signature="e#7779#7780#0" expanded="true" />
+            <element signature="e#7847#7848#0" expanded="true" />
+            <element signature="e#9603#9604#0" expanded="true" />
+            <element signature="e#9632#9633#0" expanded="true" />
           </folding>
         </state>
       </provider>

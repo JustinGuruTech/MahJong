@@ -32,6 +32,7 @@ public class Tile extends JPanel {
     private boolean tileOnTop = false;
     private boolean clickable = false;
     private boolean visible = true;
+    private boolean selected = false;
     private Point boardLocation;
 
     static {
@@ -127,6 +128,18 @@ public class Tile extends JPanel {
         boardLocation = point;
     }
 
+    public void setSelected() {
+        selected = true;
+    }
+
+    public void setDeselected() {
+        selected = false;
+    }
+
+    public boolean getSelected() {
+        return selected;
+    }
+
     public boolean matches(Tile other) {
 
         // check for same tile and null
@@ -143,6 +156,8 @@ public class Tile extends JPanel {
 
         // call constructor for paint component
         super.paintComponent(g);
+
+//        add(border);
 
         // 2d graphics, gradient and shading will control depth
         Graphics2D g2d = (Graphics2D) g;
@@ -163,15 +178,23 @@ public class Tile extends JPanel {
         g2d.fillPolygon(coordinates1.get(5), coordinates2.get(5), 4);
 
         g2d.setColor(BLACK);
-        // causing a fucking problem
         g2d.drawPolygon(coordinates1.get(6), coordinates2.get(6), 4);
         g2d.drawPolygon(coordinates1.get(7), coordinates2.get(7), 4);
-//        g2d.drawPolygon(WIDTH, WIDTH - 5 4);
 
-        g2d.setPaint(gradients.get(3));
-        g2d.fillRect(10, 0, WIDTH, HEIGHT - 5);
-        g2d.setColor(BLACK);
-        g2d.drawRect(10, 0, WIDTH, HEIGHT - 5);
+        if (selected) {
+            g2d.setPaint(WHITE);
+            g2d.fillRect(10, 0, WIDTH, HEIGHT - 5);
+            g2d.setColor(RED);
+            g2d.setStroke(new BasicStroke(2));
+            g2d.drawRect(10, 0, WIDTH, HEIGHT - 5);
+        } else {
+            g2d.setPaint(gradients.get(3));
+            g2d.fillRect(10, 0, WIDTH, HEIGHT - 5);
+            g2d.setColor(BLACK);
+            g2d.drawRect(10, 0, WIDTH, HEIGHT - 5);
+        }
+
+
     }
 
 

@@ -17,9 +17,10 @@ public class MahJong extends JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("MahJong Game");
-        setSize(1300, 700);
+        setSize(760, 515);
         setPreferredSize(new Dimension(1300, 700));
 
+        // closing
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 System.exit(0);
@@ -59,6 +60,7 @@ public class MahJong extends JFrame {
             } catch (NullPointerException ex) {
                 System.out.println("Background image not painted.");
             }
+
         }
 
 
@@ -66,16 +68,13 @@ public class MahJong extends JFrame {
         public void mouseClicked(MouseEvent e) {
             Tile t = (Tile)e.getSource();
 
-            // TODO: Not really a todo just nice to have my debug marked
-//            System.out.println("tile on top: " + t.getTileOnTop());
-//            System.out.println("clickable: " + t.getClickable());
-
+            // selectable
             if (t.getClickable() && !t.getTileOnTop()) {
 
                 // no tile selected
                 if (model.getTileClicked() == null) {
                     model.setTileClicked(t);
-                    tileSelected(t);
+                    t.setSelected();
 
                 // tile selected already
                 } else {
@@ -94,28 +93,22 @@ public class MahJong extends JFrame {
                         updateClickabilities(t);
 
                         // deselect initially selected tile
-                        tileDeselected(model.getTileClicked());
+                        model.getTileClicked().setDeselected();
+                        t.setDeselected();
                         model.unsetTileClicked();
 
                     // second selected tile does not match first
                     } else {
 
                         // set new selected tile and remove previous selected visuals
+                        model.getTileClicked().setDeselected();
                         model.setTileClicked(t);
-                        tileSelected(t);
+                        t.setSelected();
                     }
                 }
             }
 
             repaint();
-        }
-
-        public void tileSelected(Tile t) {
-            // TODO: Visual change for selected tile
-        }
-
-        public void tileDeselected(Tile t) {
-            // TODO: Visual change for deselected tile
         }
 
         public void updateClickabilities(Tile t) {
@@ -258,7 +251,6 @@ public class MahJong extends JFrame {
                         // reeeeeeee
                         t.setLocation((int) (t.getPosX() * Tile.WIDTH + t.getPosZ() * 10), (int) (t.getPosY() * (Tile.HEIGHT - 5) - t.getPosZ() * 10));
                         t.setBoardLocation(t.getLocation());
-
                         t.addMouseListener(this);
                         add(t);
                     }
@@ -282,7 +274,5 @@ public class MahJong extends JFrame {
 
     public static void main(String[] args) {
         new MahJong();
-
-
     }
 }
