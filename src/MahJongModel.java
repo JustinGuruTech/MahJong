@@ -2,6 +2,7 @@ import java.util.*;
 
 public class MahJongModel {
 
+
     public ArrayList<TileLayer> tileLayers = new ArrayList<>();
     public TileLayer topLayer;
     public TileLayer secondLayer;
@@ -69,30 +70,31 @@ public class MahJongModel {
     public MahJongModel() {
 
         deck = new TileDeck();
+        deck.shuffle();
         tileLayers = new ArrayList<TileLayer>(4);
 
         // left extra tile
         leftExtra = new TileLayer();
-        leftExtra.layerRows.add(new TileRow(1, 0, 3.5, 0));
+        leftExtra.layerRows.add(new TileRow(deck, 1, 0, 3.5, 0));
         leftExtra.layerRows.get(0).rowTiles.get(0).setClickable();
 
         // top tile
         topLayer = new TileLayer();
-        topLayer.layerRows.add(new TileRow(1, 6.5, 3.5, 4));
+        topLayer.layerRows.add(new TileRow(deck, 1, 6.5, 3.5, 4));
         topLayer.layerRows.get(0).rowTiles.get(0).setClickable();
 
         // second layer from top
         secondLayer = new TileLayer();
         // make edges clickable
         for (int i = 0; i < 2; i++) {
-            secondLayer.layerRows.add(new TileRow(2, 6, 3 + i, 3));
+            secondLayer.layerRows.add(new TileRow(deck, 2, 6, 3 + i, 3));
         }
 
         // third layer from top
         thirdLayer = new TileLayer();
         // make edges clickable
         for (int i = 0; i < 4; i++) {
-            thirdLayer.layerRows.add(new TileRow(4, 5, 2 + i, 2));
+            thirdLayer.layerRows.add(new TileRow(deck, 4, 5, 2 + i, 2));
             thirdLayer.layerRows.get(i).rowTiles.get(0).setClickable();
             thirdLayer.layerRows.get(i).rowTiles.get(3).setClickable();
         }
@@ -106,7 +108,7 @@ public class MahJongModel {
         fourthLayer = new TileLayer();
         // make edges clickable
         for (int i = 0; i < 6; i++) {
-            fourthLayer.layerRows.add(new TileRow(6, 4, 1 + i, 1));
+            fourthLayer.layerRows.add(new TileRow(deck, 6, 4, 1 + i, 1));
             fourthLayer.layerRows.get(i).rowTiles.get(0).setClickable();
             fourthLayer.layerRows.get(i).rowTiles.get(5).setClickable();
         }
@@ -119,14 +121,14 @@ public class MahJongModel {
 
         // bottom layer (is a bastard)
         bottomLayer = new TileLayer();
-        bottomLayer.layerRows.add(new TileRow(12, 1, 0, 0));
-        bottomLayer.layerRows.add(new TileRow(8, 3, 1, 0));
-        bottomLayer.layerRows.add(new TileRow(10, 2, 2, 0));
-        bottomLayer.layerRows.add(new TileRow(12, 1, 3, 0));
-        bottomLayer.layerRows.add(new TileRow(12, 1, 4, 0));
-        bottomLayer.layerRows.add(new TileRow(10, 2, 5, 0));
-        bottomLayer.layerRows.add(new TileRow(8, 3, 6, 0));
-        bottomLayer.layerRows.add(new TileRow(12, 1, 7, 0));
+        bottomLayer.layerRows.add(new TileRow(deck, 12, 1, 0, 0));
+        bottomLayer.layerRows.add(new TileRow(deck, 8, 3, 1, 0));
+        bottomLayer.layerRows.add(new TileRow(deck, 10, 2, 2, 0));
+        bottomLayer.layerRows.add(new TileRow(deck, 12, 1, 3, 0));
+        bottomLayer.layerRows.add(new TileRow(deck, 12, 1, 4, 0));
+        bottomLayer.layerRows.add(new TileRow(deck, 10, 2, 5, 0));
+        bottomLayer.layerRows.add(new TileRow(deck, 8, 3, 6, 0));
+        bottomLayer.layerRows.add(new TileRow(deck, 12, 1, 7, 0));
 
         // make edges clickable where extre left and right aren't
         for (int i = 0; i < bottomLayer.layerRows.size(); i++) {
@@ -155,7 +157,7 @@ public class MahJongModel {
 
         // left extra
         rightExtras = new TileLayer();
-        rightExtras.layerRows.add(new TileRow(2, 13, 3.5, 0));
+        rightExtras.layerRows.add(new TileRow(deck, 2, 13, 3.5, 0));
         rightExtras.layerRows.get(0).rowTiles.get(1).setClickable();
 
         // store in arrayList

@@ -1,24 +1,30 @@
 import java.util.*;
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.event.*;
 
-public class MahJong extends JFrame {
+public class MahJong extends JFrame implements ActionListener {
 
 //    private JPanel tilePanel = new MahJongBoard();
 
-    public static TileDeck deck = new TileDeck();
+//    public static TileDeck deck = new TileDeck();
+    private JPanel welcomeLayout = new JPanel();
+    private MahJongBoard gameBoard;
+    private boolean gameStarted = false;
 
-    static {
-        deck.shuffle();
-    }
+//    static {
+//        deck.shuffle();
+//    }
 
     public MahJong() {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("MahJong Game");
-        setSize(760, 515);
+        setSize(760, 540);
         setPreferredSize(new Dimension(1300, 700));
+
+        makeMenu();
 
         // closing
         addWindowListener(new WindowAdapter() {
@@ -27,9 +33,107 @@ public class MahJong extends JFrame {
             }
         });
 
-        add(new MahJongBoard(), BorderLayout.CENTER);
+        // landing page
+        JLabel welcomeText = new JLabel("Welome to MahJong!");
+        JButton newGameButton = new JButton("New Game");
+
+        welcomeLayout.setLayout(new BoxLayout(welcomeLayout, BoxLayout.Y_AXIS));
+        welcomeLayout.add(welcomeText);
+        newGameButton.addActionListener(this);
+        welcomeLayout.add(newGameButton);
+
+        add(welcomeLayout);
+
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String buttonPressed = e.getActionCommand();
+
+        // new game pressed
+        if (buttonPressed.equals("New Game")) {
+            // begin game
+            if (!gameStarted) {
+                remove(welcomeLayout);
+                gameBoard = new MahJongBoard();
+                gameStarted = true;
+                add(gameBoard);
+            } else {
+                remove(gameBoard);
+                gameBoard = new MahJongBoard();
+                add(gameBoard);
+            }
+
+            repaint();
+            setVisible(true);
+
+
+        }
+    }
+
+    public void makeMenu() {
+        JMenuBar menuBar = new JMenuBar();
+
+        // game menu
+        JMenu menu = new JMenu("Game");
+        menuBar.add(menu);
+
+        JMenuItem menuItem = new JMenuItem("New Game");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+
+        menuItem = new JMenuItem("Restart");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+
+        menuItem = new JMenuItem("New Numbered Game");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+
+        menuItem = new JMenuItem("New Tournament Game");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+
+        // sound menu
+        menu = new JMenu("Sound");
+        menuBar.add(menu);
+
+        menuItem = new JMenuItem("On");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+
+        menuItem = new JMenuItem("Off");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+
+        // move menu
+        menu = new JMenu("Move");
+        menuBar.add(menu);
+
+        menuItem = new JMenuItem("Undo");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+
+        menuItem = new JMenuItem("Redo");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+
+        // help menu
+
+        menu = new JMenu("Help");
+        menuBar.add(menu);
+
+        menuItem = new JMenuItem("How To Play");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+
+        menuItem = new JMenuItem("Game Rules");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+
+        setJMenuBar(menuBar);
     }
 
     public class MahJongBoard extends JPanel implements MouseListener {
