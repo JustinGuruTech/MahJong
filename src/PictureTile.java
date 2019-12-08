@@ -23,18 +23,21 @@ public class PictureTile extends Tile {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        try {
-            g.drawImage(img.getImage(), 14, 8, this);
-            return;
-        } catch (Exception e) {
-            System.out.println("Image not found.");
-        }
+        // only draw if visible
+        if (getVisibility()) {
+            try {
+                g.drawImage(img.getImage(), 14, 8, this);
+                return;
+            } catch (Exception e) {
+                System.out.println("Image not found.");
+            }
 
-        // janky but shouldn't happen anyway
-        Font currentFont = g.getFont();
-        currentFont.deriveFont(.5f);
-        g.setFont(currentFont);
-        g.drawString(name, 10, 40);
+            // janky but shouldn't happen anyway
+            Font currentFont = g.getFont();
+            currentFont.deriveFont(.5f);
+            g.setFont(currentFont);
+            g.drawString(name, 10, 40);
+        }
     }
 
     public String toString() {

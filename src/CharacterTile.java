@@ -33,57 +33,61 @@ public class CharacterTile extends Tile {
 
     @Override
     protected void paintComponent(Graphics g) {
-        // parent constructor
-        super.paintComponent(g);
 
-        // get font for testing purposes
-        // EDIT: keep font to alter to better fit tiles
-        Font font = g.getFont();
-        Font newFont = font.deriveFont(9f);
+        // only paint if visible
+        if (getVisibility()) {
+            // parent constructor
+            super.paintComponent(g);
 
-        // prepare to write
-        g.setColor(RED);
-        g.setFont(newFont);
+            // get font for testing purposes
+            // EDIT: keep font to alter to better fit tiles
+            Font font = g.getFont();
+            Font newFont = font.deriveFont(9f);
 
-        // retrieve symbol to write to top corner
-        g.drawString(String.valueOf(symbol), WIDTH, 10);
-
-        // prepare to write to center
-        g.setColor(BLACK);
-        float size = 38f; // size of font unless it's the red one
-
-        // after trial and error this looks centered enough I suppose
-        int x = WIDTH / 2 - 8;
-        int y = HEIGHT / 2 + 12;
-
-        // since 1-9 need room for multiple symbols size them down
-        if (String.valueOf(symbol).matches("[1-9]")) {
-            size = 20f;
-            x = WIDTH / 2;
-            y = HEIGHT / 2 - 5;
-        }
-
-        // set font to either small for 1-9 tiles or large for others
-        newFont = font.deriveFont(size);
-        g.setFont(newFont);
-
-        // draw main symbol
-        g.setColor(BLUE);
-        // is C (red)
-        if (symbol == 'C') {
+            // prepare to write
             g.setColor(RED);
-        }
+            g.setFont(newFont);
 
-        // is F (green)
-        if (symbol == 'F') {
-            g.setColor(GREEN);
-        }
-        g.drawString(Character.toString(map.get(symbol)), x, y);
+            // retrieve symbol to write to top corner
+            g.drawString(String.valueOf(symbol), WIDTH, 10);
 
-        // only draw wan symbol if 1-9 was drawn above
-        if (size == 20f) {
-            g.setColor(RED);
-            g.drawString(Character.toString(map.get('w')), x, y + 22);
+            // prepare to write to center
+            g.setColor(BLACK);
+            float size = 38f; // size of font unless it's the red one
+
+            // after trial and error this looks centered enough I suppose
+            int x = WIDTH / 2 - 8;
+            int y = HEIGHT / 2 + 12;
+
+            // since 1-9 need room for multiple symbols size them down
+            if (String.valueOf(symbol).matches("[1-9]")) {
+                size = 20f;
+                x = WIDTH / 2;
+                y = HEIGHT / 2 - 5;
+            }
+
+            // set font to either small for 1-9 tiles or large for others
+            newFont = font.deriveFont(size);
+            g.setFont(newFont);
+
+            // draw main symbol
+            g.setColor(BLUE);
+            // is C (red)
+            if (symbol == 'C') {
+                g.setColor(RED);
+            }
+
+            // is F (green)
+            if (symbol == 'F') {
+                g.setColor(GREEN);
+            }
+            g.drawString(Character.toString(map.get(symbol)), x, y);
+
+            // only draw wan symbol if 1-9 was drawn above
+            if (size == 20f) {
+                g.setColor(RED);
+                g.drawString(Character.toString(map.get('w')), x, y + 22);
+            }
         }
     }
 

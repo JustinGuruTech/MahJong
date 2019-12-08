@@ -12,6 +12,7 @@ public class MahJong extends JFrame implements ActionListener {
     private JPanel welcomeLayout = new JPanel();
     private MahJongBoard gameBoard;
     private boolean gameStarted = false;
+    private int moves = 0;
 
 //    static {
 //        deck.shuffle();
@@ -54,13 +55,16 @@ public class MahJong extends JFrame implements ActionListener {
 
         // new game pressed
         if (buttonPressed.equals("New Game")) {
-            // begin game
+
+            // begin game if on landing screen
             if (!gameStarted) {
-                remove(welcomeLayout);
-                gameBoard = new MahJongBoard();
                 gameStarted = true;
-                add(gameBoard);
+                remove(welcomeLayout);
+                newGame();
+
+            // start new game if one is in progress
             } else {
+                //TODO: implemement JOPtionPane for confirmation
                 remove(gameBoard);
                 gameBoard = new MahJongBoard();
                 add(gameBoard);
@@ -69,8 +73,33 @@ public class MahJong extends JFrame implements ActionListener {
             repaint();
             setVisible(true);
 
+        // restart current game
+        } else if (buttonPressed.equals("Restart")) {
 
+            // button pressed before game started, result in new game
+            if (!gameStarted) {
+                gameStarted = true;
+                newGame();
+            } else {
+                unravel();
+            }
         }
+    }
+
+    public void newGame() {
+        gameBoard = new MahJongBoard();
+        gameStarted = true;
+        add(gameBoard);
+    }
+
+    public void unravel() {
+        while (moves > 0) {
+            undo();
+        }
+    }
+
+    public void undo() {
+
     }
 
     public void makeMenu() {
@@ -189,8 +218,8 @@ public class MahJong extends JFrame implements ActionListener {
                         // remove them
                         model.getTileClicked().setInvisible();
                         t.setInvisible();
-                        remove(model.getTileClicked());
-                        remove(t);
+//                        remove(model.getTileClicked());
+//                        remove(t);
 
                         // update tiles
                         updateClickabilities(model.getTileClicked());
