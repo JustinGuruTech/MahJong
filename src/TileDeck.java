@@ -2,7 +2,7 @@ import	java.util.*;
 
 public class TileDeck
 {
-    private	ArrayList<Tile>	deck = new ArrayList<>(144);
+    public	ArrayList<Tile>	deck = new ArrayList<>(144);
 
     public TileDeck()
     {

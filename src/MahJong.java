@@ -66,23 +66,23 @@ public class MahJong extends JFrame implements ActionListener {
             } else {
                 //TODO: implemement JOPtionPane for confirmation
                 remove(gameBoard);
-                gameBoard = new MahJongBoard();
-                add(gameBoard);
+                newGame();
             }
 
-            repaint();
             setVisible(true);
 
         // restart current game
         } else if (buttonPressed.equals("Restart")) {
-
-            // button pressed before game started, result in new game
-            if (!gameStarted) {
-                gameStarted = true;
-                newGame();
-            } else {
-                unravel();
+            restartGame();
+        } else if (buttonPressed.equals("New Numbered Game")) {
+            try {
+                int gameSeed = Integer.parseInt(JOptionPane.showInputDialog("Enter Game Seed:"));
+                remove(gameBoard);
+                newGame(gameSeed);
+            } catch (NumberFormatException ex) {
+                System.out.println("invalid");
             }
+
         } else if (buttonPressed.equals("Undo")) {
             undo();
         } else if (buttonPressed.equals("Redo")) {
@@ -91,18 +91,43 @@ public class MahJong extends JFrame implements ActionListener {
     }
 
     public void newGame() {
-        // reset game state variables
+        resetGameVariables();
+
+        // new game board
+        gameBoard = new MahJongBoard();
+        add(gameBoard);
+        repaint();
+        setVisible(true);
+    }
+
+    public void newGame(long gameNumber) {
+        resetGameVariables();
+
+        // new game board
+        gameBoard = new MahJongBoard(gameNumber);
+        add(gameBoard);
+        repaint();
+        setVisible(true);
+    }
+
+    public void resetGameVariables() {
         totalMoves = 0;
         redoMoves = 0;
         tilesRemoved.clear();
-        gameBoard = new MahJongBoard();
         gameStarted = true;
-        add(gameBoard);
     }
 
-    public void unravel() {
-        while (totalMoves > 0) {
-            undo();
+    public void restartGame() {
+
+        // button pressed before game start results in new game
+        if (!gameStarted) {
+            gameStarted = true;
+            newGame();
+        } else {
+            // undo stack entirely
+            while (totalMoves > 0) {
+                undo();
+            }
         }
     }
 
@@ -111,33 +136,35 @@ public class MahJong extends JFrame implements ActionListener {
         // only if there's a move to undo
         if (totalMoves > 0) {
 
+            // twice for each move (two tiles per move)
             for (int i = 0; i < 2; i++) {
-                tilesRemoved.get(tilesRemoved.size() - 1).setVisible();
-                tilesToRedo.add(tilesRemoved.get(tilesRemoved.size() - 1));
-                tilesRemoved.remove(tilesRemoved.size() - 1);
+                tilesRemoved.get(tilesRemoved.size() - 1).setVisible(); // make tile visible
+                tilesToRedo.add(tilesRemoved.get(tilesRemoved.size() - 1)); // add tile to redo stack
+                tilesRemoved.remove(tilesRemoved.size() - 1); // remove tile from removed stack
             }
-            redoMoves++;
-            totalMoves--;
-
+            redoMoves++; // increment redo moves allowed
+            totalMoves--; // decrement total moves
+            repaint();
         }
-
-        repaint();
     }
 
     public void redo() {
 
-        //TODO: implement redo
+        // moves to redo
         if (redoMoves > 0) {
+
+            // twice for each move (two tiles per move)
             for (int i = 0; i < 2; i++) {
-                tilesToRedo.get(tilesToRedo.size() - 1).setInvisible();
-                tilesRemoved.add(tilesToRedo.get(tilesToRedo.size() -  1));
-                tilesToRedo.remove(tilesToRedo.size() - 1);
+                tilesToRedo.get(tilesToRedo.size() - 1).setInvisible(); // make tile invisible
+                tilesRemoved.add(tilesToRedo.get(tilesToRedo.size() -  1)); // add tile to removed stack
+                tilesToRedo.remove(tilesToRedo.size() - 1); // remove tile from redo stack
             }
-            redoMoves--;
-            totalMoves++;
+            redoMoves--; // decrement redo moves allowed
+            totalMoves++; // increment total moves
+            repaint();
         }
 
-        repaint();
+
     }
 
     public void makeMenu() {
@@ -205,12 +232,21 @@ public class MahJong extends JFrame implements ActionListener {
 
     public class MahJongBoard extends JPanel implements MouseListener {
 
-        public MahJongModel model = new MahJongModel();
+        public MahJongModel model;
         public ImageIcon background;
         private Image backgroundImage;
 
         public MahJongBoard() {
+            model = new MahJongModel();
+            drawBackground();
+        }
 
+        public MahJongBoard(long gameNumber) {
+            model = new MahJongModel(gameNumber);
+            drawBackground();
+        }
+
+        public void drawBackground() {
             try {
                 background = new ImageIcon(getClass().getResource("images/dragon_bg.png"));
                 backgroundImage = background.getImage();
@@ -220,7 +256,6 @@ public class MahJong extends JFrame implements ActionListener {
 
             setLayout(null);
             drawBoard();
-
         }
 
         public void paintComponent(Graphics g) {

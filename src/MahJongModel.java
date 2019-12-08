@@ -3,7 +3,7 @@ import java.util.*;
 public class MahJongModel {
 
 
-    public ArrayList<TileLayer> tileLayers = new ArrayList<>();
+    public ArrayList<TileLayer> tileLayers;
     public TileLayer topLayer;
     public TileLayer secondLayer;
     public TileLayer thirdLayer;
@@ -71,7 +71,17 @@ public class MahJongModel {
 
         deck = new TileDeck();
         deck.shuffle();
-        tileLayers = new ArrayList<TileLayer>(4);
+        formLayers();
+    }
+
+    public MahJongModel(long gameNumber) {
+        deck = new TileDeck();
+        deck.shuffle(gameNumber);
+        formLayers();
+    }
+
+    public void formLayers() {
+        tileLayers = new ArrayList<>(4);
 
         // left extra tile
         leftExtra = new TileLayer();
@@ -130,7 +140,7 @@ public class MahJongModel {
         bottomLayer.layerRows.add(new TileRow(deck, 8, 3, 6, 0));
         bottomLayer.layerRows.add(new TileRow(deck, 12, 1, 7, 0));
 
-        // make edges clickable where extre left and right aren't
+        // make edges clickable where extra left and right aren't
         for (int i = 0; i < bottomLayer.layerRows.size(); i++) {
             if (i != 3 && i != 4) {
                 bottomLayer.layerRows.get(i).rowTiles.get(0).setClickable();
@@ -169,11 +179,5 @@ public class MahJongModel {
         // EDIT: realized too late I did this backwards compared to how I wanted to some
         // janky code here and there to get the proper z value for tiles
         // def not about to refactor it all
-
-
     }
-
-
-
-
 }
