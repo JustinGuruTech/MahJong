@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.MouseListener;
 import java.util.*;
 
 
@@ -122,41 +123,40 @@ public class Tile extends JPanel {
         // call constructor for paint component
         super.paintComponent(g);
 
-        // only paint tile if visible
-            // 2d graphics, gradient and shading will control depth
-            Graphics2D g2d = (Graphics2D) g;
-            g2d.setPaint(gradients.get(0));
-            g2d.fillPolygon(coordinates1.get(0), coordinates2.get(0), 4);
+        // 2d graphics, gradient and shading will control depth
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setPaint(gradients.get(0));
+        g2d.fillPolygon(coordinates1.get(0), coordinates2.get(0), 4);
 
-            g2d.setPaint(gradients.get(1));
-            g2d.fillPolygon(coordinates1.get(1), coordinates2.get(1), 4);
+        g2d.setPaint(gradients.get(1));
+        g2d.fillPolygon(coordinates1.get(1), coordinates2.get(1), 4);
 
+        g2d.setColor(BLACK);
+        g2d.drawPolygon(coordinates1.get(2), coordinates2.get(2), 4);
+        g2d.drawPolygon(coordinates1.get(3), coordinates2.get(3), 4);
+
+        g2d.setPaint(gradients.get(2));
+        g2d.fillPolygon(coordinates1.get(4), coordinates2.get(4), 4);
+
+        g2d.setColor(TAN);
+        g2d.fillPolygon(coordinates1.get(5), coordinates2.get(5), 4);
+
+        g2d.setColor(BLACK);
+        g2d.drawPolygon(coordinates1.get(6), coordinates2.get(6), 4);
+        g2d.drawPolygon(coordinates1.get(7), coordinates2.get(7), 4);
+
+        if (selected) {
+            g2d.setPaint(WHITE);
+            g2d.fillRect(10, 0, WIDTH, HEIGHT - 5);
+            g2d.setColor(RED);
+            g2d.setStroke(new BasicStroke(2));
+            g2d.drawRect(10, 0, WIDTH, HEIGHT - 5);
+        } else {
+            g2d.setPaint(gradients.get(3));
+            g2d.fillRect(10, 0, WIDTH, HEIGHT - 5);
             g2d.setColor(BLACK);
-            g2d.drawPolygon(coordinates1.get(2), coordinates2.get(2), 4);
-            g2d.drawPolygon(coordinates1.get(3), coordinates2.get(3), 4);
-
-            g2d.setPaint(gradients.get(2));
-            g2d.fillPolygon(coordinates1.get(4), coordinates2.get(4), 4);
-
-            g2d.setColor(TAN);
-            g2d.fillPolygon(coordinates1.get(5), coordinates2.get(5), 4);
-
-            g2d.setColor(BLACK);
-            g2d.drawPolygon(coordinates1.get(6), coordinates2.get(6), 4);
-            g2d.drawPolygon(coordinates1.get(7), coordinates2.get(7), 4);
-
-            if (selected) {
-                g2d.setPaint(WHITE);
-                g2d.fillRect(10, 0, WIDTH, HEIGHT - 5);
-                g2d.setColor(RED);
-                g2d.setStroke(new BasicStroke(2));
-                g2d.drawRect(10, 0, WIDTH, HEIGHT - 5);
-            } else {
-                g2d.setPaint(gradients.get(3));
-                g2d.fillRect(10, 0, WIDTH, HEIGHT - 5);
-                g2d.setColor(BLACK);
-                g2d.drawRect(10, 0, WIDTH, HEIGHT - 5);
-            }
+            g2d.drawRect(10, 0, WIDTH, HEIGHT - 5);
+        }
 
 
 

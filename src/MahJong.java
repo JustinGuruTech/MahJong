@@ -155,25 +155,34 @@ public class MahJong extends JFrame implements ActionListener {
 
     public void undo() {
 
+        // store tiles that need to be updated
         Tile t1 = tilesRemoved.get(tilesRemoved.size() - 1);
         Tile t2 = tilesRemoved.get(tilesRemoved.size() - 2);
+
         // only if there's a move to undo
         if (totalMoves > 0) {
             // twice for each move (two tiles per move)
             for (int i = 0; i < 2; i++) {
-                tilesRemoved.get(tilesRemoved.size() - 1).setDeselected(); // this too
                 tilesRemoved.get(tilesRemoved.size() - 1).setVisible(); // make tile visible
                 tilesToRedo.add(tilesRemoved.get(tilesRemoved.size() - 1)); // add tile to redo stack
                 tilesRemoved.remove(tilesRemoved.size() - 1); // remove tile from removed stack
             }
             redoMoves++; // increment redo moves allowed
             totalMoves--; // decrement total moves
+
+            // update discards
             removeDiscard();
             gameBoard.drawDiscards();
+
+            // put tiles back
+            t1.setLocation(t1.getBoardLocation());
+            t2.setLocation(t2.getBoardLocation());
+            // update clickabilities of affected tiles
             gameBoard.updateClickabilities(t1);
             gameBoard.updateClickabilities(t2);
             repaint();
 
+            // if a tile is selected when they undo reset it
             if (gameBoard.model.getTileClicked() != null) {
                 resetClickedTile();
             }
@@ -186,18 +195,10 @@ public class MahJong extends JFrame implements ActionListener {
         // moves to redo
         if (redoMoves > 0) {
 
+            // store tiles to redo and discard them
             Tile t1 = tilesToRedo.get(tilesToRedo.size() - 1);
             Tile t2 = tilesToRedo.get(tilesToRedo.size() - 2);
             discard(t1, t2);
-
-//            t1.setInvisible();
-//            t2.setInvisible();
-//
-//            tilesRemoved.add(t1);
-//            tilesRemoved.add(t2);
-//
-//            tilesToRedo.remove(tilesToRedo.size() - 1);
-//            tilesToRedo.remove(tilesToRedo.size() - 2);
 
             // twice for each move (two tiles per move)
             for (int i = 0; i < 2; i++) {
@@ -207,11 +208,14 @@ public class MahJong extends JFrame implements ActionListener {
             }
             redoMoves--; // decrement redo moves allowed
             totalMoves++; // increment total moves
+
+            // update discards and clickabilities of affected tiles
             gameBoard.drawDiscards();
             gameBoard.updateClickabilities(t1);
             gameBoard.updateClickabilities(t2);
             repaint();
 
+            // if a tile is selected when they redo reset it
             if (gameBoard.model.getTileClicked() != null) {
                 resetClickedTile();
             }
@@ -237,12 +241,7 @@ public class MahJong extends JFrame implements ActionListener {
     }
 
     public void removeDiscard() {
-
-        // remove
-//        discardPane.remove(cardPanels.get(cardPanels.size() - 1));
-//        discardPane.revalidate();
         cardPanels.remove(cardPanels.size() - 1);
-
     }
 
     public void makeMenu() {
@@ -328,7 +327,6 @@ public class MahJong extends JFrame implements ActionListener {
             }
 
             setLayout(null);
-
         }
 
         public void paintComponent(Graphics g) {
@@ -339,7 +337,6 @@ public class MahJong extends JFrame implements ActionListener {
             } catch (NullPointerException ex) {
                 System.out.println("Background image not painted.");
             }
-
             drawBoard();
 
         }
@@ -373,6 +370,7 @@ public class MahJong extends JFrame implements ActionListener {
                         incrementTotalMoves();
                         redoMoves = 0;
 
+                        // discard tiles
                         discard(model.getTileClicked(), t);
 
                         // update tiles
@@ -484,11 +482,7 @@ public class MahJong extends JFrame implements ActionListener {
                 }
 
             }
-
-
         }
-
-
 
         @Override
         public void mousePressed(MouseEvent e) {
@@ -558,11 +552,11 @@ public class MahJong extends JFrame implements ActionListener {
 
         void drawTile(Tile t) {
             if (t.getVisibility()) {
+
+                // location only needs to be calculated once
                 if (t.getBoardLocation() == null) {
                     t.setLocation((int) (t.getPosX() * Tile.WIDTH + t.getPosZ() * 10), (int) (t.getPosY() * (Tile.HEIGHT - 5) - t.getPosZ() * 10));
                     t.setBoardLocation(t.getLocation());
-                } else {
-                    t.setLocation(t.getBoardLocation());
                 }
 
                 // this is... not great... but it gets the job done.
