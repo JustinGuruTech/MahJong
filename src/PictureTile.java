@@ -24,7 +24,6 @@ public class PictureTile extends Tile {
         super.paintComponent(g);
 
         // only draw if visible
-        if (getVisibility()) {
             try {
                 g.drawImage(img.getImage(), 14, 8, this);
                 return;
@@ -38,7 +37,7 @@ public class PictureTile extends Tile {
             g.setFont(currentFont);
             g.drawString(name, 10, 40);
         }
-    }
+
 
     public String toString() {
 

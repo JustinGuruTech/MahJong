@@ -20,7 +20,6 @@ public class CircleTile extends RankTile {
         super.paintComponent(g);
 
         // only draw if visible
-        if (getVisibility()) {
             int size;
             int x1;
             int y1;
@@ -166,7 +165,7 @@ public class CircleTile extends RankTile {
                     x1 = 12;
                     y1 += 20;
                 }
-            }
+
         }
     }
 

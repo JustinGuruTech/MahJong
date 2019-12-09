@@ -1,13 +1,11 @@
 import java.util.*;
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.event.*;
 
 public class MahJong extends JFrame implements ActionListener {
 
-//    private JPanel tilePanel = new MahJongBoard();
-
-//    public static TileDeck deck = new TileDeck();
     private JPanel welcomeLayout = new JPanel();
     private MahJongBoard gameBoard;
     private boolean gameStarted = false;
@@ -15,6 +13,9 @@ public class MahJong extends JFrame implements ActionListener {
     private int redoMoves = 0;
     private ArrayList<Tile> tilesRemoved = new ArrayList<>();
     private ArrayList<Tile> tilesToRedo = new ArrayList<>();
+    private JScrollPane discardPane = new JScrollPane();
+    private JPanel cardColumn = new JPanel();
+    private ArrayList<JPanel> cardPanels = new ArrayList<>();
 
     public void incrementTotalMoves() { totalMoves++; }
 
@@ -22,8 +23,8 @@ public class MahJong extends JFrame implements ActionListener {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("MahJong Game");
-        setSize(760, 540);
-        setPreferredSize(new Dimension(1300, 700));
+        setSize(1000, 540);
+        setPreferredSize(new Dimension(1000, 540));
 
         makeMenu();
 
@@ -38,13 +39,31 @@ public class MahJong extends JFrame implements ActionListener {
         JLabel welcomeText = new JLabel("Welome to MahJong!");
         JButton newGameButton = new JButton("New Game");
 
+        // scroll pane setup
+        discardPane.setPreferredSize(new Dimension(180, 0));
+        discardPane.setBorder(BorderFactory.createRaisedBevelBorder());
+        discardPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        discardPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        // box layout setup
+        cardColumn.setLayout(new BoxLayout(cardColumn, BoxLayout.Y_AXIS));
+
+        // panel containing cards added to scroll view
+        JPanel cardPanel = new JPanel(new BorderLayout());
+        discardPane.setViewportView(cardPanel);
+
+        // add box layout and scroll view
+        cardPanel.add(cardColumn);
+        add(discardPane, BorderLayout.EAST);
+
+        // welcome screen
         welcomeLayout.setLayout(new BoxLayout(welcomeLayout, BoxLayout.Y_AXIS));
         welcomeLayout.add(welcomeText);
         newGameButton.addActionListener(this);
         welcomeLayout.add(newGameButton);
+        add(welcomeLayout, BorderLayout.CENTER);
 
-        add(welcomeLayout);
-
+        // let's goooo
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -77,10 +96,15 @@ public class MahJong extends JFrame implements ActionListener {
         } else if (buttonPressed.equals("New Numbered Game")) {
             try {
                 int gameSeed = Integer.parseInt(JOptionPane.showInputDialog("Enter Game Seed:"));
-                remove(gameBoard);
+                if (!gameStarted) {
+                    gameStarted = true;
+                    remove(welcomeLayout);
+                } else if (gameStarted) {
+                    remove(gameBoard);
+                }
                 newGame(gameSeed);
             } catch (NumberFormatException ex) {
-                System.out.println("invalid");
+                System.out.println("invalid seed");
             }
 
         } else if (buttonPressed.equals("Undo")) {
@@ -91,6 +115,8 @@ public class MahJong extends JFrame implements ActionListener {
     }
 
     public void newGame() {
+
+        // choose game number and call constructor with it
         long gameNumber = System.currentTimeMillis() % 100000;
         setTitle("Mahjong Game - Game Number " + gameNumber);
         newGame(gameNumber);
@@ -129,15 +155,17 @@ public class MahJong extends JFrame implements ActionListener {
 
         // only if there's a move to undo
         if (totalMoves > 0) {
-
             // twice for each move (two tiles per move)
             for (int i = 0; i < 2; i++) {
+                tilesRemoved.get(tilesRemoved.size() - 1).setDeselected(); // this too
                 tilesRemoved.get(tilesRemoved.size() - 1).setVisible(); // make tile visible
                 tilesToRedo.add(tilesRemoved.get(tilesRemoved.size() - 1)); // add tile to redo stack
                 tilesRemoved.remove(tilesRemoved.size() - 1); // remove tile from removed stack
             }
             redoMoves++; // increment redo moves allowed
             totalMoves--; // decrement total moves
+            removeDiscard();
+            gameBoard.drawDiscards();
             repaint();
         }
     }
@@ -147,6 +175,8 @@ public class MahJong extends JFrame implements ActionListener {
         // moves to redo
         if (redoMoves > 0) {
 
+            discard(tilesToRedo.get(tilesToRedo.size() - 1), tilesToRedo.get(tilesToRedo.size() - 2));
+
             // twice for each move (two tiles per move)
             for (int i = 0; i < 2; i++) {
                 tilesToRedo.get(tilesToRedo.size() - 1).setInvisible(); // make tile invisible
@@ -155,9 +185,28 @@ public class MahJong extends JFrame implements ActionListener {
             }
             redoMoves--; // decrement redo moves allowed
             totalMoves++; // increment total moves
+            gameBoard.drawDiscards();
             repaint();
         }
+    }
 
+    public void discard(Tile t1, Tile t2) {
+
+        // make panel from discarded
+        JPanel cardPanel = new JPanel(new FlowLayout());
+        cardPanel.setAlignmentY(Component.TOP_ALIGNMENT);
+        cardPanel.add(t1, FlowLayout.LEFT);
+        cardPanel.add(t2, FlowLayout.LEFT);
+        cardPanels.add(cardPanel);
+
+    }
+
+    public void removeDiscard() {
+
+        // remove
+//        discardPane.remove(cardPanels.get(cardPanels.size() - 1));
+//        discardPane.revalidate();
+        cardPanels.remove(cardPanels.size() - 1);
 
     }
 
@@ -244,7 +293,7 @@ public class MahJong extends JFrame implements ActionListener {
             }
 
             setLayout(null);
-            drawBoard();
+
         }
 
         public void paintComponent(Graphics g) {
@@ -255,6 +304,8 @@ public class MahJong extends JFrame implements ActionListener {
             } catch (NullPointerException ex) {
                 System.out.println("Background image not painted.");
             }
+
+            drawBoard();
 
         }
 
@@ -287,6 +338,8 @@ public class MahJong extends JFrame implements ActionListener {
                         incrementTotalMoves();
                         redoMoves = 0;
 
+                        discard(model.getTileClicked(), t);
+
                         // update tiles
                         updateClickabilities(model.getTileClicked());
                         updateClickabilities(t);
@@ -295,6 +348,8 @@ public class MahJong extends JFrame implements ActionListener {
                         model.getTileClicked().setDeselected();
                         t.setDeselected();
                         model.unsetTileClicked();
+
+                        drawDiscards();
 
                     // second selected tile does not match first
                     } else {
@@ -307,6 +362,7 @@ public class MahJong extends JFrame implements ActionListener {
                 }
             }
 
+            revalidate();
             repaint();
         }
 
@@ -431,9 +487,8 @@ public class MahJong extends JFrame implements ActionListener {
             layer = model.leftExtra;
             row = layer.layerRows.get(0);
             t = row.rowTiles.get(0);
-            t.setLocation((int) (t.getPosX() * Tile.WIDTH + t.getPosZ() * 10), (int) (t.getPosY() * (Tile.HEIGHT - 5) - t.getPosZ() * 10));
-            t.addMouseListener(this);
-            add(t);
+
+            drawTile(t);
 
             // 10 less x and 10 more y for each lower layer
             // display main board
@@ -446,12 +501,7 @@ public class MahJong extends JFrame implements ActionListener {
                     // tiles
                     for (int k = 0; k < row.rowTiles.size(); k++) {
                         t = row.rowTiles.get(k);
-
-                        // reeeeeeee
-                        t.setLocation((int) (t.getPosX() * Tile.WIDTH + t.getPosZ() * 10), (int) (t.getPosY() * (Tile.HEIGHT - 5) - t.getPosZ() * 10));
-                        t.setBoardLocation(t.getLocation());
-                        t.addMouseListener(this);
-                        add(t);
+                        drawTile(t);
                     }
                 }
 
@@ -461,14 +511,46 @@ public class MahJong extends JFrame implements ActionListener {
             layer = model.rightExtras;
             row = layer.layerRows.get(0);
             for (int i = 0; i < 2; i++) {
-                t = row.rowTiles.get(i);
-                t.setLocation((int) (t.getPosX() * Tile.WIDTH + t.getPosZ() * 10), (int) (t.getPosY() * (Tile.HEIGHT - 5) - t.getPosZ() * 10));
-                t.addMouseListener(this);
-                add(t);
+                    t = row.rowTiles.get(i);
+                    drawTile(t);
             }
 
         }
 
+        void drawTile(Tile t) {
+            if (t.getVisibility()) {
+                if (t.getBoardLocation() == null) {
+                    t.setLocation((int) (t.getPosX() * Tile.WIDTH + t.getPosZ() * 10), (int) (t.getPosY() * (Tile.HEIGHT - 5) - t.getPosZ() * 10));
+                    t.setBoardLocation(t.getLocation());
+                } else {
+                    t.setLocation(t.getBoardLocation());
+                }
+
+                // this is... not great... but it gets the job done.
+                // if I had more time I'd make it more efficient but at least
+                // this keeps it from making a new mouseListener every time it redraws
+                t.removeMouseListener(this);
+                t.addMouseListener(this);
+                add(t);
+                revalidate();
+
+            } else {
+                remove(t);
+                revalidate();
+            }
+        }
+
+        void drawDiscards() {
+
+            // again, bit weird to remove all then add but all I can get to work reliably right now
+            cardColumn.removeAll();
+            revalidate();
+
+            // update discards from array
+            for (int i = cardPanels.size() - 1; i >= 0; i--) {
+                cardColumn.add(cardPanels.get(i));
+            }
+        }
     }
 
     public static void main(String[] args) {

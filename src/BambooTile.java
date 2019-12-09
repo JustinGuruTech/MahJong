@@ -13,7 +13,6 @@ public class BambooTile extends RankTile {
         super.paintComponent(g);
 
         // only draw if visible
-        if (getVisibility()) {
             int x1;
             int y1;
             if (rank == 2) {
@@ -118,7 +117,7 @@ public class BambooTile extends RankTile {
                     x1 = (WIDTH - 10) / 2 - 4;
                     y1 += 18;
                 }
-            }
+
         }
     }
 

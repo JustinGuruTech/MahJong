@@ -16,7 +16,6 @@ public class WhiteDragonTile extends Tile {
         super.paintComponent(g);
 
         // only draw if visible
-        if (getVisibility()) {
             int x1 = 17;
             int y1 = 4;
             g.setColor(BLUE);
@@ -55,6 +54,6 @@ public class WhiteDragonTile extends Tile {
             y1 = 8;
             g.drawRect(x1, y1, 31, 44);
 
-        }
+
     }
 }

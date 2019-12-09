@@ -35,7 +35,6 @@ public class CharacterTile extends Tile {
     protected void paintComponent(Graphics g) {
 
         // only paint if visible
-        if (getVisibility()) {
             // parent constructor
             super.paintComponent(g);
 
@@ -88,7 +87,7 @@ public class CharacterTile extends Tile {
                 g.setColor(RED);
                 g.drawString(Character.toString(map.get('w')), x, y + 22);
             }
-        }
+
     }
 
     public String toString() {

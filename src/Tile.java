@@ -33,7 +33,7 @@ public class Tile extends JPanel {
     private boolean clickable = false;
     private boolean visible = true;
     private boolean selected = false;
-    private Point boardLocation;
+    private Point boardLocation = null;
 
     static {
         gradients.add(new GradientPaint(0, HEIGHT, GREEN, 0, HEIGHT - 85, BLACK));
@@ -65,6 +65,7 @@ public class Tile extends JPanel {
         setToolTipText(toString());
         setPreferredSize(dimension);
         setSize(WIDTH + 10, HEIGHT + 10);
+        setPreferredSize(new Dimension(WIDTH + 10, HEIGHT + 10));
         setOpaque(false);
 
     }
@@ -121,7 +122,6 @@ public class Tile extends JPanel {
         super.paintComponent(g);
 
         // only paint tile if visible
-        if (visible) {
             // 2d graphics, gradient and shading will control depth
             Graphics2D g2d = (Graphics2D) g;
             g2d.setPaint(gradients.get(0));
@@ -156,7 +156,7 @@ public class Tile extends JPanel {
                 g2d.setColor(BLACK);
                 g2d.drawRect(10, 0, WIDTH, HEIGHT - 5);
             }
-        }
+
 
 
     }
