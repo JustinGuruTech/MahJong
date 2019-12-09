@@ -2,27 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea850324-5ea8-4a6b-a5fb-a9af61c590b6" name="Default" comment="Created initial classes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/BambooTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/BambooTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/CharacterTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/CharacterTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/CircleTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/CircleTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJong$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/MahJong$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJong$MahJongBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/MahJong$MahJongBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJong.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/MahJong.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJongBoardOld.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJongModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/MahJongModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJongTest$TestPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJongTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/PictureTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/PictureTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/Tile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/WhiteDragonTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/WhiteDragonTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BambooTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BambooTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CharacterTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharacterTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CircleTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CircleTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MahJong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MahJong.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PictureTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PictureTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WhiteDragonTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WhiteDragonTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BambooTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/BambooTile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CharacterTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharacterTile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CircleTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/CircleTile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MahJong$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/MahJong$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MahJong$MahJongBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/MahJong$MahJongBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MahJong.Jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/MahJong.Jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MahJong.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/MahJong.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PictureTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/PictureTile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WhiteDragonTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/WhiteDragonTile.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -411,12 +400,12 @@
       <workItem from="1575593106131" duration="22115000" />
       <workItem from="1575838902105" duration="8488000" />
       <workItem from="1575861164151" duration="1589000" />
-      <workItem from="1575862774642" duration="10504000" />
+      <workItem from="1575862774642" duration="11049000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115551000" />
+    <option name="totallyTimeSpent" value="116096000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="6" />
