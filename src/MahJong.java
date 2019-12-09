@@ -128,6 +128,7 @@ public class MahJong extends JFrame implements ActionListener {
         totalMoves = 0;
         redoMoves = 0;
         tilesRemoved.clear();
+        cardPanels.clear();
         gameStarted = true;
 
         // new game board
@@ -135,6 +136,7 @@ public class MahJong extends JFrame implements ActionListener {
         add(gameBoard);
         repaint();
         setVisible(true);
+        gameBoard.drawDiscards();
     }
 
     public void restartGame() {
