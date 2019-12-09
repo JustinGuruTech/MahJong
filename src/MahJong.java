@@ -155,6 +155,8 @@ public class MahJong extends JFrame implements ActionListener {
 
     public void undo() {
 
+        Tile t1 = tilesRemoved.get(tilesRemoved.size() - 1);
+        Tile t2 = tilesRemoved.get(tilesRemoved.size() - 2);
         // only if there's a move to undo
         if (totalMoves > 0) {
             // twice for each move (two tiles per move)
@@ -168,7 +170,14 @@ public class MahJong extends JFrame implements ActionListener {
             totalMoves--; // decrement total moves
             removeDiscard();
             gameBoard.drawDiscards();
+            gameBoard.updateClickabilities(t1);
+            gameBoard.updateClickabilities(t2);
             repaint();
+
+            if (gameBoard.model.getTileClicked() != null) {
+                resetClickedTile();
+            }
+
         }
     }
 
@@ -177,7 +186,18 @@ public class MahJong extends JFrame implements ActionListener {
         // moves to redo
         if (redoMoves > 0) {
 
-            discard(tilesToRedo.get(tilesToRedo.size() - 1), tilesToRedo.get(tilesToRedo.size() - 2));
+            Tile t1 = tilesToRedo.get(tilesToRedo.size() - 1);
+            Tile t2 = tilesToRedo.get(tilesToRedo.size() - 2);
+            discard(t1, t2);
+
+//            t1.setInvisible();
+//            t2.setInvisible();
+//
+//            tilesRemoved.add(t1);
+//            tilesRemoved.add(t2);
+//
+//            tilesToRedo.remove(tilesToRedo.size() - 1);
+//            tilesToRedo.remove(tilesToRedo.size() - 2);
 
             // twice for each move (two tiles per move)
             for (int i = 0; i < 2; i++) {
@@ -188,8 +208,21 @@ public class MahJong extends JFrame implements ActionListener {
             redoMoves--; // decrement redo moves allowed
             totalMoves++; // increment total moves
             gameBoard.drawDiscards();
+            gameBoard.updateClickabilities(t1);
+            gameBoard.updateClickabilities(t2);
             repaint();
+
+            if (gameBoard.model.getTileClicked() != null) {
+                resetClickedTile();
+            }
         }
+
+
+    }
+
+    public void resetClickedTile() {
+        gameBoard.model.getTileClicked().setDeselected();
+        gameBoard.model.unsetTileClicked();
     }
 
     public void discard(Tile t1, Tile t2) {
@@ -443,7 +476,7 @@ public class MahJong extends JFrame implements ActionListener {
                     for (int i = 0; i < 9; i++) {
                         // found the tile below
                         if (rowToReveal.rowTiles.get(i).getPosX() == row.rowTiles.get(index).getPosX()) {
-                            rowToReveal.rowTiles.get(i).removeTileOnTop();
+                            rowToReveal.rowTiles.get(i).setTileOnTop();
                             break;
                         }
                     }
@@ -451,7 +484,11 @@ public class MahJong extends JFrame implements ActionListener {
                 }
 
             }
+
+
         }
+
+
 
         @Override
         public void mousePressed(MouseEvent e) {

@@ -87,14 +87,15 @@ public class Tile extends JPanel {
     }
 
     public boolean getClickable() { return clickable; }
-    public void setClickable() { clickable = true; }
+    public void setClickable() { clickable = !clickable; }
+    public void setUnclickable() { clickable = false; }
 
     public boolean getVisibility() { return visible; }
     public void setInvisible() { visible = false; }
     public void setVisible() { visible = true; }
 
     public boolean getTileOnTop() { return tileOnTop; }
-    public void setTileOnTop() { tileOnTop = true; }
+    public void setTileOnTop() { tileOnTop = !tileOnTop; }
     public void removeTileOnTop() { tileOnTop = false; }
 
     public Point getBoardLocation() { return boardLocation; }
