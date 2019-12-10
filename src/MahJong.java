@@ -11,12 +11,12 @@ public class MahJong extends JFrame implements ActionListener {
     private boolean gameStarted = false;
     private int totalMoves = 0;
     private int redoMoves = 0;
+    private boolean tournamentMode = false;
     private ArrayList<Tile> tilesRemoved = new ArrayList<>();
     private ArrayList<Tile> tilesToRedo = new ArrayList<>();
     private JScrollPane discardPane = new JScrollPane();
     private JPanel cardColumn = new JPanel();
     private ArrayList<JPanel> cardPanels = new ArrayList<>();
-    public boolean secondTileFound = false;
     private Help howToPlay = new Help("html/how-to-play.html", "Help");
     private Help gameRules = new Help("html/game-rules.html", "Game Rules");
 
@@ -79,7 +79,6 @@ public class MahJong extends JFrame implements ActionListener {
 
         // new game pressed
         if (buttonPressed.equals("New Game")) {
-
             // begin game if on landing screen
             if (!gameStarted) {
                 gameStarted = true;
@@ -88,23 +87,22 @@ public class MahJong extends JFrame implements ActionListener {
 
             // start new game if one is in progress
             } else {
-
                 // ask for confirmation
                 if (JOptionPane.showConfirmDialog(this, "Are you sure you want to start a new game?", "Confirm New Game", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    tournamentMode = false;
                     remove(gameBoard);
                     newGame();
                 }
-
-
             }
 
             setVisible(true);
 
         // restart current game
         } else if (buttonPressed.equals("Restart")) {
-
-            if (JOptionPane.showConfirmDialog(this, "Are you sure you want to restart your current game?", "Confirm Restart", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                restartGame();
+            if (!tournamentMode) {
+                if (JOptionPane.showConfirmDialog(this, "Are you sure you want to restart your current game?", "Confirm Restart", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    restartGame();
+                }
             }
         } else if (buttonPressed.equals("New Numbered Game")) {
             try {
@@ -125,17 +123,39 @@ public class MahJong extends JFrame implements ActionListener {
             }
 
         } else if (buttonPressed.equals("Undo")) {
-            if (gameStarted) {
+            if (gameStarted && !tournamentMode) {
                 undo();
             }
         } else if (buttonPressed.equals("Redo")) {
-            if (gameStarted) {
+            if (gameStarted && !tournamentMode) {
                 redo();
             }
         } else if (buttonPressed.equals("How To Play")) {
             showHowToPlay();
         } else if (buttonPressed.equals("Game Rules")) {
             showGameRules();
+        } else if (buttonPressed.equals("New Tournament Game")) {
+
+            tournamentMode = true; // set tournament mode
+
+            // begin game if on landing screen
+            if (!gameStarted) {
+                if (JOptionPane.showConfirmDialog(this, "Are you sure you want to start a tournament game? \nUndo/Redo and displaying discards will be disabled.", "Confirm Tournament Game", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    gameStarted = true;
+                    remove(welcomeLayout);
+                    newGame();
+                }
+
+            // start new game if one is in progress
+            } else {
+                if (JOptionPane.showConfirmDialog(this, "Are you sure you want to start a tournament game? \nUndo/Redo and displaying discards will be disabled.", "Confirm Tournament Game", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    remove(gameBoard);
+                    newGame();
+                    gameBoard.drawDiscards();
+                }
+
+            }
+            setVisible(true);
         }
     }
 
@@ -143,11 +163,12 @@ public class MahJong extends JFrame implements ActionListener {
 
         // choose game number and call constructor with it
         long gameNumber = System.currentTimeMillis() % 100000;
-        setTitle("Mahjong Game - Game Number " + gameNumber);
         newGame(gameNumber);
     }
 
     public void newGame(long gameNumber) {
+
+        setTitle("Mahjong Game - Game Number " + gameNumber);
 
         // reset game variables
         totalMoves = 0;
@@ -161,7 +182,9 @@ public class MahJong extends JFrame implements ActionListener {
         add(gameBoard);
         repaint();
         setVisible(true);
-        gameBoard.drawDiscards();
+        if (!tournamentMode) {
+            gameBoard.drawDiscards();
+        }
     }
 
     public void restartGame() {
@@ -198,7 +221,9 @@ public class MahJong extends JFrame implements ActionListener {
 
             // update discards
             removeDiscard();
-            gameBoard.drawDiscards();
+            if (!tournamentMode) {
+                gameBoard.drawDiscards();
+            }
 
             // put tiles back
             t1.setLocation(t1.getBoardLocation());
@@ -236,7 +261,9 @@ public class MahJong extends JFrame implements ActionListener {
             totalMoves++; // increment total moves
 
             // update discards and clickabilities of affected tiles
-            gameBoard.drawDiscards();
+            if (!tournamentMode) {
+                gameBoard.drawDiscards();
+            }
             gameBoard.updateClickabilities(t1);
             gameBoard.updateClickabilities(t2);
             repaint();
@@ -274,6 +301,13 @@ public class MahJong extends JFrame implements ActionListener {
 
     public void showGameRules() {
         gameRules.display();
+    }
+
+    public void tournamentConfirmation() {
+        if (JOptionPane.showConfirmDialog(this, "Are you sure you want to start a tournament game? \nUndo/Redo and displaying discards will be disabled.", "Confirm Tournament Game", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            remove(gameBoard);
+            newGame();
+        }
     }
 
     public void makeMenu() {
@@ -383,7 +417,6 @@ public class MahJong extends JFrame implements ActionListener {
         @Override
         public void mouseClicked(MouseEvent e) {
             Tile t = (Tile)e.getSource();
-
             tileClicked(t);
         }
 
@@ -424,9 +457,9 @@ public class MahJong extends JFrame implements ActionListener {
                         t.setDeselected();
                         model.unsetTileClicked();
 
-                        drawDiscards();
-
-                        secondTileFound = true;
+                        if (!tournamentMode) {
+                            drawDiscards();
+                        }
 
                         // second selected tile does not match first
                     } else {

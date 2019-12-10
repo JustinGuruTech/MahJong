@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea850324-5ea8-4a6b-a5fb-a9af61c590b6" name="Default" comment="Created initial classes">
-      <change afterPath="$PROJECT_DIR$/src/ButtonFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Help.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/html/game-rules.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/html/how-to-play.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJong$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/MahJong$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJong$MahJongBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/MahJong$MahJongBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJong.Jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/MahJong.Jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJong.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mahjong/MahJong.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mahjong/MahJongAI.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MahJong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MahJong.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MahJongAI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MahJongAI.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,8 +60,8 @@
           <file leaf-file-name="game-rules.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/html/game-rules.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="496">
-                  <caret line="23" column="104" selection-start-line="23" selection-start-column="104" selection-end-line="23" selection-end-column="104" />
+                <state relative-caret-position="112">
+                  <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
                 </state>
               </provider>
             </entry>
@@ -100,7 +88,7 @@
             <entry file="file://$PROJECT_DIR$/src/MahJong.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="2222">
-                  <caret line="188" selection-start-line="188" selection-end-line="188" />
+                  <caret line="211" selection-start-line="211" selection-end-line="211" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1062#1394#0" expanded="true" />
@@ -124,22 +112,22 @@
           <file leaf-file-name="MahJong.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/MahJong.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="141">
-                  <caret line="137" column="28" selection-start-line="137" selection-start-column="28" selection-end-line="137" selection-end-column="28" />
+                <state relative-caret-position="-3352">
+                  <caret line="418" column="41" selection-start-line="418" selection-start-column="41" selection-end-line="418" selection-end-column="41" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1062#1394#0" expanded="true" />
                     <element signature="e#1393#1394#0" expanded="true" />
-                    <element signature="e#9126#9127#0" expanded="true" />
-                    <element signature="e#9182#9183#0" expanded="true" />
-                    <element signature="e#9260#9261#0" expanded="true" />
-                    <element signature="e#9295#9296#0" expanded="true" />
-                    <element signature="e#9411#9412#0" expanded="true" />
-                    <element signature="e#9445#9446#0" expanded="true" />
-                    <element signature="e#19516#19517#0" expanded="true" />
-                    <element signature="e#19584#19585#0" expanded="true" />
-                    <element signature="e#21234#21235#0" expanded="true" />
-                    <element signature="e#21263#21264#0" expanded="true" />
+                    <element signature="e#10158#10159#0" expanded="true" />
+                    <element signature="e#10214#10215#0" expanded="true" />
+                    <element signature="e#10249#10250#0" expanded="true" />
+                    <element signature="e#10284#10285#0" expanded="true" />
+                    <element signature="e#10319#10320#0" expanded="true" />
+                    <element signature="e#10354#10355#0" expanded="true" />
+                    <element signature="e#19389#19390#0" expanded="true" />
+                    <element signature="e#19457#19458#0" expanded="true" />
+                    <element signature="e#22293#22294#0" expanded="true" />
+                    <element signature="e#22322#22323#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -190,7 +178,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>c</find>
       <find>image</find>
       <find>protected</find>
       <find>CYAN</find>
@@ -220,6 +207,7 @@
       <find>undo</find>
       <find>how</find>
       <find>images/</find>
+      <find>drawDisc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -259,9 +247,9 @@
         <option value="$PROJECT_DIR$/src/MahJongModel.java" />
         <option value="$PROJECT_DIR$/src/Help.java" />
         <option value="$PROJECT_DIR$/src/ButtonFactory.java" />
-        <option value="$PROJECT_DIR$/src/MahJong.java" />
         <option value="$PROJECT_DIR$/src/html/how-to-play.html" />
         <option value="$PROJECT_DIR$/src/html/game-rules.html" />
+        <option value="$PROJECT_DIR$/src/MahJong.java" />
       </list>
     </option>
   </component>
@@ -274,11 +262,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="435" />
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
-    <option name="width" value="1485" />
-    <option name="height" value="1102" />
+    <option name="width" value="1920" />
+    <option name="height" value="1100" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -448,15 +435,15 @@
       <workItem from="1575593106131" duration="22115000" />
       <workItem from="1575838902105" duration="8488000" />
       <workItem from="1575861164151" duration="1589000" />
-      <workItem from="1575862774642" duration="31575000" />
+      <workItem from="1575862774642" duration="33568000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136622000" />
+    <option name="totallyTimeSpent" value="138615000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="435" y="23" width="1485" height="1102" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -469,12 +456,12 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24338086" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2168784" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.08108108" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.06230032" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -877,25 +864,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MahJong.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2222">
-          <caret line="188" selection-start-line="188" selection-end-line="188" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1062#1394#0" expanded="true" />
-            <element signature="e#1393#1394#0" expanded="true" />
-            <element signature="e#9126#9127#0" expanded="true" />
-            <element signature="e#9182#9183#0" expanded="true" />
-            <element signature="method#makeMenu#0;class#MahJong#0" />
-            <element signature="e#15653#15654#0" expanded="true" />
-            <element signature="e#15721#15722#0" expanded="true" />
-            <element signature="e#21234#21235#0" expanded="true" />
-            <element signature="e#21263#21264#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/html/how-to-play.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -905,8 +873,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/html/game-rules.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="23" column="104" selection-start-line="23" selection-start-column="104" selection-end-line="23" selection-end-column="104" />
+        <state relative-caret-position="112">
+          <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MahJong.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3352">
+          <caret line="418" column="41" selection-start-line="418" selection-start-column="41" selection-end-line="418" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1062#1394#0" expanded="true" />
+            <element signature="e#1393#1394#0" expanded="true" />
+            <element signature="e#10158#10159#0" expanded="true" />
+            <element signature="e#10214#10215#0" expanded="true" />
+            <element signature="e#10249#10250#0" expanded="true" />
+            <element signature="e#10284#10285#0" expanded="true" />
+            <element signature="e#10319#10320#0" expanded="true" />
+            <element signature="e#10354#10355#0" expanded="true" />
+            <element signature="e#19389#19390#0" expanded="true" />
+            <element signature="e#19457#19458#0" expanded="true" />
+            <element signature="e#22293#22294#0" expanded="true" />
+            <element signature="e#22322#22323#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
