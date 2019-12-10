@@ -84,28 +84,40 @@ public class MahJong extends JFrame implements ActionListener {
 
             // start new game if one is in progress
             } else {
-                //TODO: implemement JOPtionPane for confirmation
-                remove(gameBoard);
-                newGame();
+
+                // ask for confirmation
+                if (JOptionPane.showConfirmDialog(this, "Are you sure you want to start a new game?", "Confirm New Game", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    remove(gameBoard);
+                    newGame();
+                }
+
+
             }
 
             setVisible(true);
 
         // restart current game
         } else if (buttonPressed.equals("Restart")) {
-            restartGame();
+
+            if (JOptionPane.showConfirmDialog(this, "Are you sure you want to restart your current game?", "Confirm Restart", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                restartGame();
+            }
         } else if (buttonPressed.equals("New Numbered Game")) {
             try {
                 int gameSeed = Integer.parseInt(JOptionPane.showInputDialog("Enter Game Seed:"));
-                if (!gameStarted) {
-                    gameStarted = true;
-                    remove(welcomeLayout);
-                } else if (gameStarted) {
-                    remove(gameBoard);
+
+                if (JOptionPane.showConfirmDialog(this, "Are you sure you want to start a new game from this seed?", "Confirm New Seeded Game", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    if (!gameStarted) {
+                        gameStarted = true;
+                        remove(welcomeLayout);
+                    } else if (gameStarted) {
+                        remove(gameBoard);
+                    }
+                    newGame(gameSeed);
                 }
-                newGame(gameSeed);
             } catch (NumberFormatException ex) {
                 System.out.println("invalid seed");
+                JOptionPane.showMessageDialog(this, "Invalid Seed Number", "Direction", JOptionPane.INFORMATION_MESSAGE);
             }
 
         } else if (buttonPressed.equals("Undo")) {
@@ -284,15 +296,21 @@ public class MahJong extends JFrame implements ActionListener {
         menu = new JMenu("Move");
         menuBar.add(menu);
 
+        JMenuItem menuItemSave = new JMenuItem();
+
         menuItem = new JMenuItem("Undo");
         menuItem.addActionListener(this);
         menu.add(menuItem);
+
+        // keyboard shortcut for undo
+        menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, KeyEvent.CTRL_DOWN_MASK));
 
         menuItem = new JMenuItem("Redo");
         menuItem.addActionListener(this);
         menu.add(menuItem);
 
-        // help menu
+        // keyboard shortcut for redo
+        menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, ActionEvent.CTRL_MASK+ActionEvent.SHIFT_MASK));
 
         menu = new JMenu("Help");
         menuBar.add(menu);
@@ -460,7 +478,6 @@ public class MahJong extends JFrame implements ActionListener {
                     // check if at edge
                     if (index + 1 <= row.rowTiles.size() - 1) {
                         row.rowTiles.get(index + 1).toggleTileOpenLeft();
-                        // TODO: make sure
                     }
 
                 // right is hidden
@@ -469,7 +486,6 @@ public class MahJong extends JFrame implements ActionListener {
                     // check if at edge
                     if (index - 1 >= 0) {
                         row.rowTiles.get(index - 1).toggleTileOpenRight();
-                        // TODO: make sure
                     }
                 }
 
