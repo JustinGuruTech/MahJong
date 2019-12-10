@@ -1,6 +1,5 @@
 import java.awt.*;
 import javax.swing.*;
-import java.awt.event.MouseListener;
 import java.util.*;
 
 
@@ -31,7 +30,9 @@ public class Tile extends JPanel {
     private int posZ = 0;
 
     private boolean tileOnTop = false;
-    private boolean clickable = false;
+    private boolean tileOpenLeft;
+    private boolean tileOpenRight;
+//    private boolean clickable = false;
     private boolean visible = true;
     private boolean selected = false;
     private Point boardLocation = null;
@@ -87,24 +88,30 @@ public class Tile extends JPanel {
         setPosZ(z);
     }
 
-    public boolean getClickable() { return clickable; }
-    public void setClickable() { clickable = !clickable; }
-    public void setUnclickable() { clickable = false; }
+//    public boolean getClickable() { return clickable; }
+//    public void setClickable() { clickable = !clickable; }
+//    public void setUnclickable() { clickable = false; }
 
     public boolean getVisibility() { return visible; }
     public void setInvisible() { visible = false; }
     public void setVisible() { visible = true; }
 
+    public boolean getTileOpenRight() { return tileOpenRight; }
+    public void toggleTileOpenRight() { tileOpenRight = !tileOpenRight; }
+
+    public boolean getTileOpenLeft() { return tileOpenLeft; }
+    public void toggleTileOpenLeft() { tileOpenLeft = !tileOpenLeft; }
+
     public boolean getTileOnTop() { return tileOnTop; }
-    public void setTileOnTop() { tileOnTop = !tileOnTop; }
-    public void removeTileOnTop() { tileOnTop = false; }
+    public void toggleTileOnTop() { tileOnTop = !tileOnTop; }
+//    public void removeTileOnTop() { tileOnTop = false; }
 
     public Point getBoardLocation() { return boardLocation; }
     public void setBoardLocation(Point point) { boardLocation = point; }
 
     public void setSelected() { selected = true; }
     public void setDeselected() { selected = false; }
-    public boolean getSelected() { return selected; }
+//    public boolean getSelected() { return selected; }
 
     public boolean matches(Tile other) {
 
@@ -161,7 +168,4 @@ public class Tile extends JPanel {
 
 
     }
-
-
-
 }

@@ -7,7 +7,7 @@ import java.awt.event.*;
 public class MahJong extends JFrame implements ActionListener {
 
     private JPanel welcomeLayout = new JPanel();
-    private MahJongBoard gameBoard;
+    public MahJongBoard gameBoard;
     private boolean gameStarted = false;
     private int totalMoves = 0;
     private int redoMoves = 0;
@@ -16,6 +16,7 @@ public class MahJong extends JFrame implements ActionListener {
     private JScrollPane discardPane = new JScrollPane();
     private JPanel cardColumn = new JPanel();
     private ArrayList<JPanel> cardPanels = new ArrayList<>();
+    public boolean secondTileFound = false;
 
     public void incrementTotalMoves() { totalMoves++; }
 
@@ -346,15 +347,19 @@ public class MahJong extends JFrame implements ActionListener {
         public void mouseClicked(MouseEvent e) {
             Tile t = (Tile)e.getSource();
 
+            tileClicked(t);
+        }
+
+        public void tileClicked(Tile t) {
             // selectable
-            if (t.getClickable() && !t.getTileOnTop()) {
+            if ((t.getTileOpenLeft() || t.getTileOpenRight()) && !t.getTileOnTop()) {
 
                 // no tile selected
                 if (model.getTileClicked() == null) {
                     model.setTileClicked(t);
                     t.setSelected();
 
-                // tile selected already
+                    // tile selected already
                 } else {
 
                     // second selected tile matches first
@@ -384,7 +389,9 @@ public class MahJong extends JFrame implements ActionListener {
 
                         drawDiscards();
 
-                    // second selected tile does not match first
+                        secondTileFound = true;
+
+                        // second selected tile does not match first
                     } else {
 
                         // set new selected tile and remove previous selected visuals
@@ -406,7 +413,7 @@ public class MahJong extends JFrame implements ActionListener {
             if (t.getPosZ() == 4) {
                 for (int i = 0; i < 2; i++) {
                     for (int j = 0; j < 2; j++) {
-                        model.secondLayer.layerRows.get(i).rowTiles.get(j).setClickable();
+                        model.secondLayer.layerRows.get(i).rowTiles.get(j).toggleTileOnTop();
                     }
                 }
             }
@@ -414,20 +421,20 @@ public class MahJong extends JFrame implements ActionListener {
             // far left tile removed
             else if (t == model.leftExtra.layerRows.get(0).rowTiles.get(0)) {
                 for (int i = 3; i < 5; i++) {
-                    model.bottomLayer.layerRows.get(i).rowTiles.get(0).setClickable();
+                    model.bottomLayer.layerRows.get(i).rowTiles.get(0).toggleTileOpenLeft();
                 }
 
             }
 
             // far right tile removed
             else if (t == model.rightExtras.layerRows.get(0).rowTiles.get(1)) {
-                model.rightExtras.layerRows.get(0).rowTiles.get(0).setClickable();
+                model.rightExtras.layerRows.get(0).rowTiles.get(0).toggleTileOpenRight();
             }
 
             // second far right tile removed
             else if (t == model.rightExtras.layerRows.get(0).rowTiles.get(0)) {
                 for (int i = 3; i < 5; i++) {
-                    model.bottomLayer.layerRows.get(i).rowTiles.get(11).setClickable();
+                    model.bottomLayer.layerRows.get(i).rowTiles.get(11).toggleTileOpenRight();
                 }
 
             // general scenario
@@ -441,18 +448,19 @@ public class MahJong extends JFrame implements ActionListener {
 
                 // left most in row
                 if (index - 1 < 0) {
-                    row.rowTiles.get(index + 1).setClickable();
+                    row.rowTiles.get(index + 1).toggleTileOpenLeft();
 
                 // right most in row
                 } else if (index + 1 == row.rowTiles.size()) {
-                    row.rowTiles.get(index - 1).setClickable();
+                    row.rowTiles.get(index - 1).toggleTileOpenRight();
 
                 // left is hidden
                 } else if (!row.rowTiles.get(index - 1).getVisibility()) {
 
                     // check if at edge
                     if (index + 1 <= row.rowTiles.size() - 1) {
-                        row.rowTiles.get(index + 1).setClickable();
+                        row.rowTiles.get(index + 1).toggleTileOpenLeft();
+                        // TODO: make sure
                     }
 
                 // right is hidden
@@ -460,7 +468,8 @@ public class MahJong extends JFrame implements ActionListener {
 
                     // check if at edge
                     if (index - 1 >= 0) {
-                        row.rowTiles.get(index - 1).setClickable();
+                        row.rowTiles.get(index - 1).toggleTileOpenRight();
+                        // TODO: make sure
                     }
                 }
 
@@ -474,7 +483,7 @@ public class MahJong extends JFrame implements ActionListener {
                     for (int i = 0; i < 9; i++) {
                         // found the tile below
                         if (rowToReveal.rowTiles.get(i).getPosX() == row.rowTiles.get(index).getPosX()) {
-                            rowToReveal.rowTiles.get(i).setTileOnTop();
+                            rowToReveal.rowTiles.get(i).toggleTileOnTop();
                             break;
                         }
                     }
@@ -500,7 +509,7 @@ public class MahJong extends JFrame implements ActionListener {
             // nice lil indicator for the user that they can click the one they hover over
             Tile t = (Tile)e.getSource();
 
-            if (t.getClickable() && !t.getTileOnTop()) {
+            if ((t.getTileOpenLeft() || t.getTileOpenRight()) && !t.getTileOnTop()) {
                 setCursor(new Cursor(Cursor.HAND_CURSOR));
             }
         }

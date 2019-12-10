@@ -15,17 +15,9 @@ public class MahJongModel {
 
     private Tile tileClicked = null;
 
-    public Tile getTileClicked() {
-        return tileClicked;
-    }
-
-    public void setTileClicked(Tile tileClicked) {
-        this.tileClicked = tileClicked;
-    }
-
-    public void unsetTileClicked() {
-        this.tileClicked = null;
-    }
+    public Tile getTileClicked() { return tileClicked; }
+    public void setTileClicked(Tile tileClicked) { this.tileClicked = tileClicked; }
+    public void unsetTileClicked() { this.tileClicked = null; }
 
     // draw left to right to preserve overlay
     // all tiles zero indexed
@@ -81,18 +73,30 @@ public class MahJongModel {
         // left extra tile
         leftExtra = new TileLayer();
         leftExtra.layerRows.add(new TileRow(deck, 1, 0, 3.5, 0));
-        leftExtra.layerRows.get(0).rowTiles.get(0).setClickable();
+        leftExtra.layerRows.get(0).rowTiles.get(0).toggleTileOpenLeft();
+//        leftExtra.layerRows.get(0).rowTiles.get(0).setClickable();
 
         // top tile
         topLayer = new TileLayer();
         topLayer.layerRows.add(new TileRow(deck, 1, 6.5, 3.5, 4));
-        topLayer.layerRows.get(0).rowTiles.get(0).setClickable();
+        topLayer.layerRows.get(0).rowTiles.get(0).toggleTileOpenLeft();
+        topLayer.layerRows.get(0).rowTiles.get(0).toggleTileOpenRight();
+//        topLayer.layerRows.get(0).rowTiles.get(0).setClickable();
 
         // second layer from top
         secondLayer = new TileLayer();
         // make edges clickable
         for (int i = 0; i < 2; i++) {
             secondLayer.layerRows.add(new TileRow(deck, 2, 6, 3 + i, 3));
+            secondLayer.layerRows.get(i).rowTiles.get(0).toggleTileOpenLeft();
+            secondLayer.layerRows.get(i).rowTiles.get(1).toggleTileOpenRight();
+        }
+
+        // place tile on top of second layer
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                secondLayer.layerRows.get(i).rowTiles.get(j).toggleTileOnTop();
+            }
         }
 
         // third layer from top
@@ -100,13 +104,13 @@ public class MahJongModel {
         // make edges clickable
         for (int i = 0; i < 4; i++) {
             thirdLayer.layerRows.add(new TileRow(deck, 4, 5, 2 + i, 2));
-            thirdLayer.layerRows.get(i).rowTiles.get(0).setClickable();
-            thirdLayer.layerRows.get(i).rowTiles.get(3).setClickable();
+            thirdLayer.layerRows.get(i).rowTiles.get(0).toggleTileOpenLeft();
+            thirdLayer.layerRows.get(i).rowTiles.get(3).toggleTileOpenRight();
         }
         // set tileOnTop var for those with tile on top
         for (int i = 1; i < 3; i++) {
-            thirdLayer.layerRows.get(i).rowTiles.get(1).setTileOnTop();
-            thirdLayer.layerRows.get(i).rowTiles.get(2).setTileOnTop();
+            thirdLayer.layerRows.get(i).rowTiles.get(1).toggleTileOnTop();
+            thirdLayer.layerRows.get(i).rowTiles.get(2).toggleTileOnTop();
         }
 
         // fourth layer from top
@@ -114,13 +118,13 @@ public class MahJongModel {
         // make edges clickable
         for (int i = 0; i < 6; i++) {
             fourthLayer.layerRows.add(new TileRow(deck, 6, 4, 1 + i, 1));
-            fourthLayer.layerRows.get(i).rowTiles.get(0).setClickable();
-            fourthLayer.layerRows.get(i).rowTiles.get(5).setClickable();
+            fourthLayer.layerRows.get(i).rowTiles.get(0).toggleTileOpenLeft();
+            fourthLayer.layerRows.get(i).rowTiles.get(5).toggleTileOpenRight();
         }
         // set tileOnTop var for those with tile on top
         for (int i = 1; i < 5; i++) {
             for (int j = 1; j < 5; j++) {
-                fourthLayer.layerRows.get(i).rowTiles.get(j).setTileOnTop();
+                fourthLayer.layerRows.get(i).rowTiles.get(j).toggleTileOnTop();
             }
         }
 
@@ -138,8 +142,8 @@ public class MahJongModel {
         // make edges clickable where extra left and right aren't
         for (int i = 0; i < bottomLayer.layerRows.size(); i++) {
             if (i != 3 && i != 4) {
-                bottomLayer.layerRows.get(i).rowTiles.get(0).setClickable();
-                bottomLayer.layerRows.get(i).rowTiles.get(bottomLayer.layerRows.get(i).rowTiles.size() - 1).setClickable();
+                bottomLayer.layerRows.get(i).rowTiles.get(0).toggleTileOpenLeft();
+                bottomLayer.layerRows.get(i).rowTiles.get(bottomLayer.layerRows.get(i).rowTiles.size() - 1).toggleTileOpenRight();
             }
         }
 
@@ -156,14 +160,14 @@ public class MahJongModel {
         // set tileOnTop var for those with tile on top
         for (int i = 1; i < 7; i++) {
             for (int j = x1Cover[i - 1]; j <= x2Cover[i - 1]; j++) {
-                bottomLayer.layerRows.get(i).rowTiles.get(j).setTileOnTop();
+                bottomLayer.layerRows.get(i).rowTiles.get(j).toggleTileOnTop();
             }
         }
 
-        // left extra
+        // right extras
         rightExtras = new TileLayer();
         rightExtras.layerRows.add(new TileRow(deck, 2, 13, 3.5, 0));
-        rightExtras.layerRows.get(0).rowTiles.get(1).setClickable();
+        rightExtras.layerRows.get(0).rowTiles.get(1).toggleTileOpenRight();
 
         // store in arrayList
         tileLayers.add(topLayer);
@@ -175,4 +179,5 @@ public class MahJongModel {
         // janky code here and there to get the proper z value for tiles
         // def not about to refactor it all
     }
+
 }
