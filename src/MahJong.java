@@ -17,12 +17,14 @@ public class MahJong extends JFrame implements ActionListener {
     private JPanel cardColumn = new JPanel();
     private ArrayList<JPanel> cardPanels = new ArrayList<>();
     public boolean secondTileFound = false;
+    private Help howToPlay = new Help("html/how-to-play.html", "Help");
+    private Help gameRules = new Help("html/game-rules.html", "Game Rules");
 
     public void incrementTotalMoves() { totalMoves++; }
 
     public MahJong() {
 
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("MahJong Game");
         setSize(1000, 540);
         setPreferredSize(new Dimension(1000, 540));
@@ -32,7 +34,9 @@ public class MahJong extends JFrame implements ActionListener {
         // closing
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
-                System.exit(0);
+                if (JOptionPane.showConfirmDialog(welcomeLayout, "Are you sure you want to exit?", "Confirm Exit", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
             }
         });
 
@@ -121,9 +125,17 @@ public class MahJong extends JFrame implements ActionListener {
             }
 
         } else if (buttonPressed.equals("Undo")) {
-            undo();
+            if (gameStarted) {
+                undo();
+            }
         } else if (buttonPressed.equals("Redo")) {
-            redo();
+            if (gameStarted) {
+                redo();
+            }
+        } else if (buttonPressed.equals("How To Play")) {
+            showHowToPlay();
+        } else if (buttonPressed.equals("Game Rules")) {
+            showGameRules();
         }
     }
 
@@ -168,12 +180,13 @@ public class MahJong extends JFrame implements ActionListener {
 
     public void undo() {
 
-        // store tiles that need to be updated
-        Tile t1 = tilesRemoved.get(tilesRemoved.size() - 1);
-        Tile t2 = tilesRemoved.get(tilesRemoved.size() - 2);
-
         // only if there's a move to undo
         if (totalMoves > 0) {
+
+            // store tiles that need to be updated
+            Tile t1 = tilesRemoved.get(tilesRemoved.size() - 1);
+            Tile t2 = tilesRemoved.get(tilesRemoved.size() - 2);
+
             // twice for each move (two tiles per move)
             for (int i = 0; i < 2; i++) {
                 tilesRemoved.get(tilesRemoved.size() - 1).setVisible(); // make tile visible
@@ -233,8 +246,6 @@ public class MahJong extends JFrame implements ActionListener {
                 resetClickedTile();
             }
         }
-
-
     }
 
     public void resetClickedTile() {
@@ -255,6 +266,14 @@ public class MahJong extends JFrame implements ActionListener {
 
     public void removeDiscard() {
         cardPanels.remove(cardPanels.size() - 1);
+    }
+
+    public void showHowToPlay() {
+        howToPlay.display();
+    }
+
+    public void showGameRules() {
+        gameRules.display();
     }
 
     public void makeMenu() {
