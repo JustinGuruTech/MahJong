@@ -17,8 +17,8 @@ public class MahJong extends JFrame implements ActionListener {
     private JScrollPane discardPane = new JScrollPane();
     private JPanel cardColumn = new JPanel();
     private ArrayList<JPanel> cardPanels = new ArrayList<>();
-    private Help howToPlay = new Help("html/how-to-play.html", "Help");
-    private Help gameRules = new Help("html/game-rules.html", "Game Rules");
+    public Help howToPlay = new Help("html/how-to-play.html", "How To Play");
+    public Help gameRules = new Help("html/game-rules.html", "Game Rules");
 
     public void incrementTotalMoves() { totalMoves++; }
 
