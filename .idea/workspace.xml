@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea850324-5ea8-4a6b-a5fb-a9af61c590b6" name="Default" comment="Created initial classes">
-      <change beforePath="$PROJECT_DIR$/src/MahJong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MahJong.java" afterDir="false" />
-    </list>
+    <list default="true" id="ea850324-5ea8-4a6b-a5fb-a9af61c590b6" name="Default" comment="Created initial classes" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,10 +17,10 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Tile.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Tile.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-564">
+                <state relative-caret-position="1312">
                   <caret line="82" column="56" lean-forward="true" selection-start-line="82" selection-start-column="56" selection-end-line="82" selection-end-column="56" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -66,10 +64,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MahJongModel.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="MahJongModel.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/MahJongModel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="269">
+                <state relative-caret-position="182">
                   <caret line="151" column="28" selection-start-line="151" selection-start-column="28" selection-end-line="151" selection-end-column="28" />
                 </state>
               </provider>
@@ -112,7 +110,7 @@
           <file leaf-file-name="MahJong.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/MahJong.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="635">
+                <state relative-caret-position="-7832">
                   <caret line="160" column="46" lean-forward="true" selection-start-line="160" selection-start-column="46" selection-end-line="160" selection-end-column="46" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -447,12 +445,12 @@
       <workItem from="1575593106131" duration="22115000" />
       <workItem from="1575838902105" duration="8488000" />
       <workItem from="1575861164151" duration="1589000" />
-      <workItem from="1575862774642" duration="36408000" />
+      <workItem from="1575862774642" duration="36654000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141455000" />
+    <option name="totallyTimeSpent" value="141701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
@@ -809,13 +807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MahJongModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="151" column="28" selection-start-line="151" selection-start-column="28" selection-end-line="151" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/html/how-to-play.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -882,7 +873,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-564">
+        <state relative-caret-position="1312">
           <caret line="82" column="56" lean-forward="true" selection-start-line="82" selection-start-column="56" selection-end-line="82" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -892,23 +883,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MahJong.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="160" column="46" lean-forward="true" selection-start-line="160" selection-start-column="46" selection-end-line="160" selection-end-column="46" />
+        <state relative-caret-position="2222">
+          <caret line="217" selection-start-line="217" selection-end-line="217" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1062#1394#0" expanded="true" />
             <element signature="e#1393#1394#0" expanded="true" />
-            <element signature="e#10158#10159#0" expanded="true" />
-            <element signature="e#10214#10215#0" expanded="true" />
-            <element signature="e#10249#10250#0" expanded="true" />
-            <element signature="e#10284#10285#0" expanded="true" />
-            <element signature="e#10319#10320#0" expanded="true" />
-            <element signature="e#10354#10355#0" expanded="true" />
-            <element signature="e#19389#19390#0" expanded="true" />
-            <element signature="e#19457#19458#0" expanded="true" />
-            <element signature="e#22293#22294#0" expanded="true" />
-            <element signature="e#22322#22323#0" expanded="true" />
+            <element signature="e#9126#9127#0" expanded="true" />
+            <element signature="e#9182#9183#0" expanded="true" />
+            <element signature="method#makeMenu#0;class#MahJong#0" />
+            <element signature="e#15653#15654#0" expanded="true" />
+            <element signature="e#15721#15722#0" expanded="true" />
+            <element signature="e#21234#21235#0" expanded="true" />
+            <element signature="e#21263#21264#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MahJongModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="151" column="28" selection-start-line="151" selection-start-column="28" selection-end-line="151" selection-end-column="28" />
         </state>
       </provider>
     </entry>
