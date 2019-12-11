@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea850324-5ea8-4a6b-a5fb-a9af61c590b6" name="Default" comment="Created initial classes">
-      <change beforePath="$PROJECT_DIR$/src/MahJong.Jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/MahJong.Jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MahJong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MahJong.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,11 +19,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Tile.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Tile.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="84">
-                  <caret line="69" column="51" lean-forward="true" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
+                <state relative-caret-position="-564">
+                  <caret line="82" column="56" lean-forward="true" selection-start-line="82" selection-start-column="56" selection-end-line="82" selection-end-column="56" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -31,7 +31,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Help.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Help.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Help.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="86">
@@ -88,7 +88,7 @@
             <entry file="file://$PROJECT_DIR$/src/MahJong.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="2222">
-                  <caret line="211" selection-start-line="211" selection-end-line="211" />
+                  <caret line="217" selection-start-line="217" selection-end-line="217" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1062#1394#0" expanded="true" />
@@ -112,8 +112,8 @@
           <file leaf-file-name="MahJong.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/MahJong.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="6880">
-                  <caret line="418" column="41" selection-start-line="418" selection-start-column="41" selection-end-line="418" selection-end-column="41" />
+                <state relative-caret-position="635">
+                  <caret line="160" column="46" lean-forward="true" selection-start-line="160" selection-start-column="46" selection-end-line="160" selection-end-column="46" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1062#1394#0" expanded="true" />
@@ -137,7 +137,7 @@
             <entry file="file://$PROJECT_DIR$/src/PictureTile.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="416">
-                  <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+                  <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -447,12 +447,12 @@
       <workItem from="1575593106131" duration="22115000" />
       <workItem from="1575838902105" duration="8488000" />
       <workItem from="1575861164151" duration="1589000" />
-      <workItem from="1575862774642" duration="33886000" />
+      <workItem from="1575862774642" duration="36408000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138933000" />
+    <option name="totallyTimeSpent" value="141455000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
@@ -468,12 +468,12 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2168784" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2168784" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.06230032" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10756124" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -710,24 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ScrollDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#299#305#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TileRow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DiscardDisplay.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -808,27 +790,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TileLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MahJongAI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="69" column="51" lean-forward="true" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -883,7 +848,42 @@
     <entry file="file://$PROJECT_DIR$/src/PictureTile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
-          <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TileRow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TileLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ScrollDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#299#305#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-564">
+          <caret line="82" column="56" lean-forward="true" selection-start-line="82" selection-start-column="56" selection-end-line="82" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -892,8 +892,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MahJong.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6880">
-          <caret line="418" column="41" selection-start-line="418" selection-start-column="41" selection-end-line="418" selection-end-column="41" />
+        <state relative-caret-position="635">
+          <caret line="160" column="46" lean-forward="true" selection-start-line="160" selection-start-column="46" selection-end-line="160" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1062#1394#0" expanded="true" />

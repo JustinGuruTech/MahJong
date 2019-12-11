@@ -156,6 +156,12 @@ public class MahJong extends JFrame implements ActionListener {
 
             }
             setVisible(true);
+        } else if (buttonPressed.equals("On")) {
+            System.out.println("Sound is totally turned on I promise you just can't hear it.");
+            // TODO: Add sound on capabilities
+        } else if (buttonPressed.equals("Off")) {
+            System.out.println("Sound is turned off");
+            // TODO: Add sound off capabilities
         }
     }
 
@@ -588,6 +594,17 @@ public class MahJong extends JFrame implements ActionListener {
         }
 
         public void drawBoard() {
+
+            // winning pane
+            if (tilesRemoved.size() == 144) {
+                if (JOptionPane.showConfirmDialog(this, "Congratulations! You Won! Would you like to play again?", "You Won!", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    remove(gameBoard);
+                    newGame();
+                } else {
+                    System.exit(0);
+                }
+            }
+
             // used for displaying iteratively
             TileLayer layer;
             TileRow row;
