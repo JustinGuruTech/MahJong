@@ -44,4 +44,9 @@
       <li>The loop in the constructor calls setXYZ in tile and sets based on where x is in the loop and the given yVal and zVal</li>
     </ul>
   </ul>
+  <b>TileLayer</b>
+  <ul>
+    <li>Contains an ArrayList of layerRows</li>
+    <li>Constructor takes no arguments, layerRows is public and added to in MahJongBoard (will be update to private later)</li>
+  </ul>
 </ul>
