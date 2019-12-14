@@ -47,6 +47,23 @@
   <b>TileLayer</b>
   <ul>
     <li>Contains an ArrayList of layerRows</li>
-    <li>Constructor takes no arguments, layerRows is public and added to in MahJongBoard (will be update to private later)</li>
+    <li>Constructor takes no arguments, layerRows is public and added to in MahJongModel (will be update to private later)</li>
+  </ul>
+</ul>
+
+<b>MahJongModel</b>
+<ul>
+  <li>This is where the magic of the board data structure happens</li>
+  <li>Note: Currently the z-indexing across the project is inconsistent and will eventually be refactored.</li>
+  <li>Contains a TileLayer attribute for each layer which is then added to an ArrayList of TileLayers</li>
+  <li>Also has a TileLayer for leftExtra and rightExtras since it's easier to deal with those tiles separately</li>
+  <li>Contains a Tile attribute with getters/setters for storing a tile when it's clicked. This is used for program flow control in MahJong to determine how the program should act when a tile is clicked. Set to null if no tile is selected.</li>
+  <li>Contains TileDeck attribute that will be the deck for the game.</li>
+  <li>Constructor creates a deck, shuffles it using provided gameNumber, and calls formLayers().</li>
+  <b>formLayers Method</b>
+  <ul>
+    <li>Creates ArrayList of tileLayers and stores in tileLayers var.</li>
+    <li>The forming of layers is heavily commented, refer to those comments for exact formatting. General format is create tileRows and add to tileLayer then set the right/left side open or set tile on top where applicable</li>
+    <li>This function gets the model completely ready to be displayed by MahJongBoard and used by MahJong</li>
   </ul>
 </ul>
