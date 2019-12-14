@@ -67,3 +67,32 @@
     <li>This function gets the model completely ready to be displayed by MahJongBoard and used by MahJong</li>
   </ul>
 </ul>
+
+<b>MahJong and MahJongBoard</b>
+<ul>
+  <li>MahJong is the driver and has nested class MahJongBoard. Nesting it makes it easier to get everything displaying smoothly.</li>
+<b>MahJongBoard</b>
+  <ul>
+    <li>MahJongBoard extends JPanel and implements MouseListener, adding a listener to each of the tiles as they are added to the board.</li>
+    <li>Has a MahJongModel attribute which is used for getting the deck and layout</li>
+    <li>ImageIcon and Image are used to display the background image, nothing special.<li>
+    <li>Constructor requires a gameNumber (passed to it in MahJong, more on that later) and creates a new MahJongModel based on the number before calling drawBackground.</li>
+    <li>drawBackground method gets image from resources in a try catch and displays it, nothing special</li>
+    <b>DrawBoard() Method</b>
+    <ul>
+      <li>DrawBoard() is called by paintComponent every time there is a repaint.</li>
+      <li>First checks to see if 144 tiles have been discarded (winning condition)</li>
+      <li>Temporary variables for TileLayer, TileRow, and Tile for drawing</li>
+      <li>Draws edge tiles then tileLayers iteratively. Again, refer to the heavy commentation for a deeper understanding.</li>
+    </ul>
+    <b>DrawTile(Tile t)</b>
+    <ul>
+      <li>DrawTile() is called from drawBoard()</li>
+      <li>First it checks if the visible variable in Tile is true, if so it removes then adds a mouselistener back (needs to be fixed) then adds it to the board.
+    </ul>
+    <b>DrawDiscards()</b>
+    <ul>
+      <li>This uses a variable in MahJong, cardPanels, to get the discards that need to be displayed and adds them to cardColumn, another varibale in MahJong.</li>
+      <li>First it gets rid of all the tiles in the discard then redraws them based on cardPanels</li>
+    </ul>
+  </ul>
